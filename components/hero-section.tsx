@@ -23,10 +23,10 @@ export function HeroSection() {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 text-center">
         <p className="text-primary tracking-[0.3em] text-sm mb-4 animate-fade-in">
-          AFROPOP • AFROBEAT • ACOUSTIC
+          AFROPOP • AFROBEAT • HIP-HOP
         </p>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6 text-balance">
-          KOFI ASANTE
+          TIKI ZIKI
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8 text-pretty">
           Bridging cultures through rhythm. A sonic journey from Lagos to the world.
