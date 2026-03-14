@@ -12,7 +12,7 @@ export function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Image
           src="/images/artist-hero.jpg"
-          alt="Kofi Asante"
+          alt="Tiki ziki"
           fill
           className="object-cover object-center"
           priority
@@ -29,7 +29,7 @@ export function HeroSection() {
           TIKI ZIKI
         </h1>
         <p className="text-lg md:text-xl text-muted-foreground max-w-xl mx-auto mb-8 text-pretty">
-          Bridging cultures through rhythm. A sonic journey from Lagos to the world.
+          Sound of the Coast. 
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button size="lg" className="gap-2 px-8" asChild>
