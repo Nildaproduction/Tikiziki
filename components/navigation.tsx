@@ -34,7 +34,7 @@ export function Navigation() {
     >
       <nav className="container mx-auto px-6 py-4 flex items-center justify-between">
         <Link href="#home" className="text-2xl font-bold tracking-tight text-foreground">
-          KOFI<span className="text-primary">.</span>
+          TIKI ZIKI<span className="text-primary">.</span>
         </Link>
 
         {/* Desktop Navigation */}
