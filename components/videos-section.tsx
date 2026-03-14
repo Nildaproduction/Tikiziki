@@ -1,23 +1,17 @@
+'use client'
+
+import * as React from 'react'
+
 const videos = [
   {
     title: "Don't You Know (Official Music Video)",
-    videoId: "https://youtu.be/JQg6xW434Ek?si=px6AYVkR2-x4Wmeg",
+    videoId: "JQg6xW434Ek", // YouTube ID only
     type: "Music Video",
   },
   {
-    title: "Flex(Full Versionp)",
-    videoId: "https://youtu.be/iK31wp4AdwQ?si=7cA1YrLNQLPiCDCZ",
+    title: "Flex (Full Version)",
+    videoId: "iK31wp4AdwQ", // YouTube ID only
     type: "Music Visualiser",
-  },
-  {
-    title: "Roots & Wings (Acoustic Session)",
-    videoId: "dQw4w9WgXcQ",
-    type: "Acoustic",
-  },
-  {
-    title: "Behind the Scenes - Album Recording",
-    videoId: "dQw4w9WgXcQ",
-    type: "Documentary",
   },
 ]
 
