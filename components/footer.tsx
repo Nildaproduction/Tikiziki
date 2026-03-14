@@ -4,7 +4,7 @@ import { Instagram, Youtube, Music } from "lucide-react"
 const socialLinks = [
   { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
   { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-  { icon: Music, href: "https://spotify.com", label: "Spotify" },
+  { icon: Music, href: "https://open.spotify.com/artist/2HsQ019QVh3OKVEAfTry74?si=ePngPr07TXajhhT3rSFdcg", label: "Spotify" },
 ]
 
 const navLinks = [
@@ -23,7 +23,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Logo */}
           <Link href="#home" className="text-2xl font-bold tracking-tight">
-            KOFI<span className="text-primary">.</span>
+            TIKI ZIKI<span className="text-primary">.</span>
           </Link>
 
           {/* Nav Links */}
