@@ -1,10 +1,10 @@
 import Image from "next/image"
 
 const highlights = [
-  { stat: "6M+", label: "Monthly Listeners" },
-  { stat: "50+", label: "Shows Worldwide" },
-  { stat: "3", label: "Studio Albums" },
-  { stat: "15+", label: "Awards" },
+  { stat: "10K+", label: "Monthly Listeners" },
+  { stat: "4+", label: "Shows" },
+  { stat: "16", label: "Total Releases" },
+  { stat: "0", label: "Awards" },
 ]
 
 export function AboutSection() {
@@ -29,22 +29,25 @@ export function AboutSection() {
             
             <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
               <p>
-                Born in Accra and raised between Lagos and London, Kofi Asante is a 
-                trailblazing force in contemporary African music. His unique sound 
-                weaves together the pulsating rhythms of Afrobeat, the melodic sensibilities 
-                of Afropop, and the intimate storytelling of acoustic folk.
+               Tiki Ziki is an emerging Afropop and Afrobeat artist from Mombasa, Kenya.
+                His music blends contemporary African rhythms with melodic storytelling,
+                creating a sound influenced by modern Afrobeats while maintaining a distinct
+                coastal East African identity Through his releases, he focuses on themes of ambition,
+                relationships, and everyday life experiences.
+          
               </p>
               <p>
-                With three critically acclaimed albums and collaborations with artists 
-                across the globe, Kofi has established himself as a bridge between 
-                traditional African musical heritage and modern global sounds. His 
-                live performances are legendary, transforming venues into spiritual 
-                gatherings of rhythm and connection.
+                Over time, Tiki Ziki has developed a growing catalog of songs distributed 
+                on digital streaming platforms, building a presence among listeners interested 
+                in Afropop and Afrobeat music. His work combines catchy melodies with rhythmic
+                production,positioning him within the new generation of independent African artists 
+                working to expand their audience both locally and internationally.
               </p>
               <p>
-                Beyond music, Kofi is passionate about nurturing the next generation 
-                of African artists through his foundation, which provides music 
-                education to underserved communities across West Africa.
+                Working with Top Sound Music Label, Tiki Ziki continues to develop new projects 
+               and collaborations aimed at reaching wider global audiences. His music strategy 
+                includes digital distribution, online promotion, and performance opportunities
+                designed to strengthen his presence within the evolving Afrobeats scene.
               </p>
             </div>
 
