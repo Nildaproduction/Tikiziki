@@ -115,7 +115,7 @@ export function MusicSection() {
 
         <div className="mt-16">
           <iframe
-            src="https://open.spotify.com/embed/artist/4V8LLVI7PbaPR0K2TGSxFF"
+            src="https://open.spotify.com/embed/artist/2HsQ019QVh3OKVEAfTry74?utm_source=generator"
             width="100%"
             height="352"
             frameBorder="0"
