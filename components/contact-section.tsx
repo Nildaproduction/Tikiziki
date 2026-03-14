@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button"
-import { Mail, Instagram, Youtube, Spotify } from "lucide-react"
+import { Mail, Instagram, Youtube, Music } from "lucide-react"
 import Link from "next/link"
 
 const socialLinks = [
   { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
   { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-  { icon: Spotify, href: "https://open.spotify.com/artist/2HsQ019QVh3OKVEAfTry74?si=ePngPr07TXajhhT3rSFdcg", label: "Spotify" },
+  { icon: Music, href: "https://open.spotify.com/artist/2HsQ019QVh3OKVEAfTry74?si=ePngPr07TXajhhT3rSFdcg", label: "Spotify" },
 ]
 
 export function ContactSection() {
