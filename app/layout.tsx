@@ -14,8 +14,8 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'Tiki ziki ASANT | Afropop Artist',
-  description: 'Official website of Kofi Asante - Afropop and Afrobeat artist blending traditional African rhythms with contemporary sounds.',
+  title: 'Tiki ziki | Afropop Artist',
+  description: 'Official website of Tiki ziki - Afropop and Afrobeat artist blending traditional African rhythms with contemporary sounds.',
   generator: 'v0.app',
   keywords: ['Afropop', 'Afrobeat', 'Music', 'Artist', 'African Music'],
   icons: {
