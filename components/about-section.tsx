@@ -25,7 +25,7 @@ export function AboutSection() {
           {/* Content */}
           <div>
             <p className="text-primary tracking-[0.3em] text-sm mb-4">THE ARTIST</p>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">About Kofi</h2>
+            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">About Tiki ziki</h2>
             
             <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
               <p>
