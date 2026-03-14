@@ -1,13 +1,13 @@
 const videos = [
   {
-    title: "Golden Hour (Official Music Video)",
-    videoId: "dQw4w9WgXcQ",
+    title: "Don't You Know (Official Music Video)",
+    videoId: "https://youtu.be/JQg6xW434Ek?si=px6AYVkR2-x4Wmeg",
     type: "Music Video",
   },
   {
-    title: "Lagos Nights - Live at Afro Nation",
-    videoId: "dQw4w9WgXcQ",
-    type: "Live Performance",
+    title: "Flex(Full Versionp)",
+    videoId: "https://youtu.be/iK31wp4AdwQ?si=7cA1YrLNQLPiCDCZ",
+    type: "Music Visualiser",
   },
   {
     title: "Roots & Wings (Acoustic Session)",
