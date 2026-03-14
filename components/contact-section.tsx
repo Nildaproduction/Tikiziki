@@ -36,10 +36,10 @@ export function ContactSection() {
               <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="font-bold text-lg mb-2">Press & Media</h3>
               <Link
-                href="mailto:tikimzikikenya@gmail.com"
+                href="mailto:livingstonmwaki12@gmail.com"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                tikimzikikenya@gmail.com
+               livingstonmwaki12@gmail.com
               </Link>
             </div>
           </div>
