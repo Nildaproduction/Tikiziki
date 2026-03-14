@@ -14,10 +14,10 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'Tiki ziki | Afropop Artist',
+  title: 'Tiki ziki | Official website',
   description: 'Official website of Tiki ziki - Afropop and Afrobeat artist blending traditional African rhythms with contemporary sounds.',
   generator: 'v0.app',
-  keywords: ['Afropop', 'Afrobeat', 'Music', 'Artist', 'African Music'],
+  keywords: ['Afropop', 'Afrobeat', 'Music', 'Artist', 'African Music', 'Tiki ziki'],
   icons: {
     icon: [
       {
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
         media: '(prefers-color-scheme: light)',
       },
       {
-        url: '/icon-dark-32x32.png',
+        url: '/icon-blue-32x32.png',
         media: '(prefers-color-scheme: dark)',
       },
       {
