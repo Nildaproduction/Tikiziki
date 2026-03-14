@@ -1,7 +1,7 @@
 import Image from "next/image"
 
 const highlights = [
-  { stat: "5M+", label: "Monthly Listeners" },
+  { stat: "6M+", label: "Monthly Listeners" },
   { stat: "50+", label: "Shows Worldwide" },
   { stat: "3", label: "Studio Albums" },
   { stat: "15+", label: "Awards" },
