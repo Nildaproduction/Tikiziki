@@ -5,7 +5,7 @@ import Link from "next/link"
 const socialLinks = [
   { icon: Instagram, href: "https://instagram.com", label: "Instagram" },
   { icon: Youtube, href: "https://youtube.com", label: "YouTube" },
-  { icon: Music, href: "https://spotify.com", label: "Spotify" },
+  { icon: Music, href: "https://open.spotify.com/artist/2HsQ019QVh3OKVEAfTry74?si=ePngPr07TXajhhT3rSFdcg", label: "Spotify" },
 ]
 
 export function ContactSection() {
@@ -18,7 +18,7 @@ export function ContactSection() {
             {"Let's Work Together"}
           </h2>
           <p className="text-lg text-muted-foreground mb-12">
-            For booking inquiries, press, collaborations, or just to say hello.
+            For booking inquiries, press, collaborations, or Merchandise.
           </p>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
@@ -26,20 +26,20 @@ export function ContactSection() {
               <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="font-bold text-lg mb-2">Booking & Management</h3>
               <Link
-                href="mailto:booking@kofiasante.com"
+                href="tikimzikikenya@gmail.com"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                booking@kofiasante.com
+                tikimzikikenya@gmail.com
               </Link>
             </div>
             <div className="p-8 bg-card border border-border rounded-lg">
               <Mail className="h-8 w-8 text-primary mx-auto mb-4" />
               <h3 className="font-bold text-lg mb-2">Press & Media</h3>
               <Link
-                href="mailto:press@kofiasante.com"
+                href="mailto:tikimzikikenya@gmail.com"
                 className="text-muted-foreground hover:text-foreground transition-colors"
               >
-                press@kofiasante.com
+                tikimzikikenya@gmail.com
               </Link>
             </div>
           </div>
