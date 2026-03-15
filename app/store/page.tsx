@@ -6,47 +6,43 @@ export default function StorePage() {
   const [submitted, setSubmitted] = useState(false)
 
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gradient-to-tr from-purple-900 via-pink-600 to-blue-500 px-6">
-      <div className="text-center max-w-xl p-8 border border-neutral-700 rounded-xl backdrop-blur-sm shadow-lg">
-        <h1 className="text-6xl font-extrabold mb-6 tracking-wide text-green-400 drop-shadow-lg">
+    <main className="min-h-screen bg-[#111] flex items-center justify-center px-6">
+      <div className="text-center max-w-lg w-full p-8 rounded-2xl bg-gradient-to-tr from-[#1c1c1c] to-[#111] shadow-2xl">
+
+        {/* Headline */}
+        <h1 className="text-5xl md:text-6xl font-extrabold text-[#57f2cc] drop-shadow-lg mb-6">
           TIKI ZIKI STORE
         </h1>
-        <p className="text-lg text-white mb-2">
-          Merchandise Coming Soon
+        <p className="text-lg text-neutral-300 mb-4">
+          Merch Coming Soon
         </p>
-        <p className="text-neutral-200 mb-8">
-          Sign up to be notified when the store opens!
+        <p className="text-neutral-400 mb-8">
+          Enter your email to be the first to know when it’s live.
         </p>
 
+        {/* Form or Thank You Message */}
         {submitted ? (
-          <p className="text-green-300 font-bold text-lg">
-            Thank you! We’ve received your info.
+          <p className="text-[#57f2cc] font-semibold text-lg">
+            Thank you! We’ll keep you updated 🎵
           </p>
         ) : (
           <form
             action="https://formspree.io/f/mnjgbevy"
             method="POST"
-            className="flex flex-col sm:flex-row justify-center gap-4"
+            className="flex flex-col gap-4"
             onSubmit={() => setSubmitted(true)}
           >
             <input
               type="email"
               name="email"
-              placeholder="Enter your email"
-              className="px-4 py-3 rounded-lg w-full sm:w-auto flex-1 text-black"
+              placeholder="Your email address"
+              className="px-4 py-3 rounded-lg bg-[#222] text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#57f2cc] transition"
               required
-            />
-
-            <input
-              type="tel"
-              name="phone"
-              placeholder="Phone number (optional)"
-              className="px-4 py-3 rounded-lg w-full sm:w-auto flex-1 text-black"
             />
 
             <button
               type="submit"
-              className="px-6 py-3 bg-green-400 hover:bg-green-500 text-black font-bold rounded-lg transition"
+              className="mt-2 py-3 bg-[#57f2cc] text-black font-bold rounded-lg hover:bg-[#45d9b8] transition"
             >
               Notify Me
             </button>
