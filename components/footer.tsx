@@ -2,8 +2,8 @@ import Link from "next/link"
 import { Instagram, Youtube, Music } from "lucide-react"
 
 const socialLinks = [
-  { icon: Instagram, href: "instagram.com/tiki_zikigram?igsh=MTFtdzJjeTB4Mjd2Zw==", label: "Instagram" },
-  { icon: Youtube, href: "www.youtube.com/@TikizikiTV", label: "YouTube" },
+  { icon: Instagram, href: "https://www.instagram.com/tiki_zikigram?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==", label: "Instagram" },
+  { icon: Youtube, href: "https://youtube.com/@tikizikitv?si=GnOVFTOMs19_Tx-R", label: "YouTube" },
   { icon: Music, href: "https://open.spotify.com/artist/2HsQ019QVh3OKVEAfTry74?si=ePngPr07TXajhhT3rSFdcg", label: "Spotify" },
 ]
 
