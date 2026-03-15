@@ -1,18 +1,58 @@
+import Link from "next/link"
+
 export default function StorePage() {
   return (
-    <main className="min-h-screen flex items-center justify-center bg-black text-white">
-      <div className="text-center px-6">
-        <p className="tracking-[0.4em] text-sm mb-6 text-neutral-400">
-          STORE
-        </p>
-
-        <h1 className="text-4xl md:text-6xl font-bold mb-4">
-          Under Construction
+    <main
+      style={{
+        height: "100vh",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        textAlign: "center",
+        padding: "20px",
+      }}
+    >
+      <div
+        style={{
+          background: "rgba(0,0,0,0.35)",
+          backdropFilter: "blur(10px)",
+          padding: "60px",
+          borderRadius: "20px",
+          maxWidth: "700px",
+        }}
+      >
+        <h1
+          style={{
+            fontSize: "64px",
+            fontWeight: "bold",
+            marginBottom: "20px",
+            letterSpacing: "4px",
+          }}
+        >
+          TIKI ZIKI STORE
         </h1>
 
-        <p className="text-neutral-400 text-lg">
-          Official merchandise will be available soon.
+        <p style={{ fontSize: "28px", marginBottom: "15px" }}>
+          Merchandise Coming Soon
         </p>
+
+        <p style={{ opacity: 0.85, marginBottom: "35px" }}>
+          Official apparel, vinyl and exclusive drops will be available here soon.
+        </p>
+
+        <Link
+          href="/"
+          style={{
+            padding: "14px 28px",
+            background: "#ffffff",
+            color: "#000",
+            borderRadius: "30px",
+            fontWeight: "bold",
+            textDecoration: "none",
+          }}
+        >
+          Back to Website
+        </Link>
       </div>
     </main>
   )
