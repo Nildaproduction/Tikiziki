@@ -14,10 +14,10 @@ export default function StorePage() {
           TIKI ZIKI STORE
         </h1>
         <p className="text-lg text-neutral-300 mb-4">
-          Merch Coming Soon
+          Merchandise Coming Soon
         </p>
         <p className="text-neutral-400 mb-8">
-          Enter your email to be the first to know when it’s live.
+          Sign up to be the first to know when the store opens!
         </p>
 
         {/* Form or Thank You Message */}
@@ -27,7 +27,7 @@ export default function StorePage() {
           </p>
         ) : (
           <form
-            action="https://formspree.io/f/mnjgbevy"
+            action="https://formspree.io/f/mnjgbevy" // your Formspree URL
             method="POST"
             className="flex flex-col gap-4"
             onSubmit={() => setSubmitted(true)}
@@ -38,6 +38,13 @@ export default function StorePage() {
               placeholder="Your email address"
               className="px-4 py-3 rounded-lg bg-[#222] text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#57f2cc] transition"
               required
+            />
+
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Phone number (optional)"
+              className="px-4 py-3 rounded-lg bg-[#222] text-white placeholder-neutral-500 focus:outline-none focus:ring-2 focus:ring-[#57f2cc] transition"
             />
 
             <button
