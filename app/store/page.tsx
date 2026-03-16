@@ -8,6 +8,7 @@ export default function StorePage() {
   const [typingText, setTypingText] = useState("")
   const fullText = "Merchandise Coming Soon"
 
+  // Typing animation loop
   useEffect(() => {
     let index = 0
     let deleting = false
@@ -40,6 +41,7 @@ export default function StorePage() {
     loop()
   }, [])
 
+  // Form submission via AJAX
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const formData = new FormData(e.currentTarget)
@@ -54,8 +56,8 @@ export default function StorePage() {
       } else {
         alert("Submission failed. Please try again.")
       }
-    } catch (err) {
-      alert("Submission error. Please check your connection.")
+    } catch {
+      alert("Submission error. Check your connection.")
     }
   }
 
@@ -75,8 +77,8 @@ export default function StorePage() {
         </p>
 
         {submitted ? (
-          <p className="text-[#57f2cc] font-semibold text-lg animate-fade-in">
-            Thank you! You’ll be notified when the store opens 🎵
+          <p className="text-[#57f2cc] font-semibold text-lg animate-success">
+            🎉 Thank you! You’ll be notified when the store opens 🎵
           </p>
         ) : (
           <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -145,6 +147,13 @@ export default function StorePage() {
 
         @keyframes blink { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
         .animate-blink { animation: blink 1s step-start infinite; }
+
+        @keyframes success {
+          0% { opacity: 0; transform: scale(0.8); }
+          50% { opacity: 1; transform: scale(1.1); }
+          100% { opacity: 1; transform: scale(1); }
+        }
+        .animate-success { animation: success 0.8s ease forwards; }
       `}</style>
     </main>
   )
