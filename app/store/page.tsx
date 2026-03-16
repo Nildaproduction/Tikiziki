@@ -6,36 +6,52 @@ import Link from "next/link"
 export default function StorePage() {
   const [submitted, setSubmitted] = useState(false)
   const [typingText, setTypingText] = useState("")
-  const [deleting, setDeleting] = useState(false)
   const fullText = "Merchandise Coming Soon"
 
   useEffect(() => {
     let index = 0
-    const speed = 150
-    const delay = 800
-    let timeout: NodeJS.Timeout
+    let deleting = false
+    const typingSpeed = 150
+    const pauseAfterTyping = 1000 // pause at end before deleting
+    const pauseAfterDeleting = 500 // pause at start before typing again
 
-    const type = () => {
+    const interval = setInterval(() => {
       if (!deleting) {
         setTypingText(fullText.slice(0, index + 1))
         index++
         if (index === fullText.length) {
-          timeout = setTimeout(() => setDeleting(true), delay)
-          return
-        }
-      } else {
-        setTypingText(fullText.slice(0, index - 1))
-        index--
-        if (index === 0) {
-          setDeleting(false)
+          deleting = true
+          clearInterval(interval)
+          setTimeout(() => setTypingText(fullText), pauseAfterTyping)
+          setTimeout(() => useEffectLoop(), pauseAfterTyping)
         }
       }
-      timeout = setTimeout(type, speed)
+    }, typingSpeed)
+
+    const useEffectLoop = () => {
+      const loopInterval = setInterval(() => {
+        if (deleting) {
+          setTypingText(fullText.slice(0, index - 1))
+          index--
+          if (index === 0) {
+            deleting = false
+            clearInterval(loopInterval)
+            setTimeout(() => useEffectLoop(), pauseAfterDeleting)
+          }
+        } else {
+          setTypingText(fullText.slice(0, index + 1))
+          index++
+          if (index === fullText.length) {
+            deleting = true
+            clearInterval(loopInterval)
+            setTimeout(() => useEffectLoop(), pauseAfterTyping)
+          }
+        }
+      }, typingSpeed)
     }
 
-    type()
-    return () => clearTimeout(timeout)
-  }, [deleting])
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <main className="relative min-h-screen overflow-hidden font-sans flex items-center justify-center px-6">
