@@ -40,6 +40,25 @@ export default function StorePage() {
     loop()
   }, [])
 
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const formData = new FormData(e.currentTarget)
+    try {
+      const response = await fetch("https://formspree.io/f/mnjgbevy", {
+        method: "POST",
+        body: formData,
+        headers: { Accept: "application/json" },
+      })
+      if (response.ok) {
+        setSubmitted(true)
+      } else {
+        alert("Submission failed. Please try again.")
+      }
+    } catch (err) {
+      alert("Submission error. Please check your connection.")
+    }
+  }
+
   return (
     <main className="relative min-h-screen overflow-hidden font-sans flex items-center justify-center px-4 sm:px-6">
       {/* Background gradient */}
@@ -60,12 +79,7 @@ export default function StorePage() {
             Thank you! You’ll be notified when the store opens 🎵
           </p>
         ) : (
-          <form
-            action="https://formspree.io/f/mnjgbevy"
-            method="POST"
-            className="flex flex-col gap-4"
-            onSubmit={() => setSubmitted(true)}
-          >
+          <form onSubmit={handleSubmit} className="flex flex-col gap-4">
             <label className="flex flex-col text-left text-white">
               Your email (required):
               <input
