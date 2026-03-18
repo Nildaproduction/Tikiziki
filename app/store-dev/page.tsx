@@ -16,7 +16,6 @@ type Product = {
 export default function StoreDev() {
   const [cart, setCart] = useState<Product[]>([])
 
-  // Define music + merch products here
   const products: Product[] = [
     {
       id: "1",
@@ -61,7 +60,6 @@ export default function StoreDev() {
   return (
     <main className="min-h-screen px-6 py-12 bg-[#f5f5f5]">
       <div className="max-w-7xl mx-auto">
-        {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-16">
           <h1 className="text-4xl md:text-5xl font-semibold tracking-wide text-black">
             TIKI ZIKI STORE
@@ -73,7 +71,6 @@ export default function StoreDev() {
           />
         </div>
 
-        {/* Products Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {products.map((product) => (
             <Link key={product.id} href={`/store-dev/product/${product.id}`}>
@@ -94,7 +91,6 @@ export default function StoreDev() {
           ))}
         </div>
 
-        {/* Cart Preview */}
         {cart.length > 0 && (
           <div className="fixed bottom-6 right-6 bg-white p-4 rounded-2xl shadow-lg w-72">
             <h3 className="font-semibold text-black mb-2">Cart ({cart.length})</h3>
