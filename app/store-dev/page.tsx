@@ -16,6 +16,7 @@ type Product = {
 export default function StoreDev() {
   const [cart, setCart] = useState<Product[]>([])
 
+  // Define music + merch products here
   const products: Product[] = [
     {
       id: "1",
