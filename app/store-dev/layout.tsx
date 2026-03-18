@@ -1,3 +1,4 @@
+// Tikiziki/app/store-dev/layout.tsx
 import "./globals.css"
 import { Playfair_Display, Poppins } from "next/font/google"
 
@@ -13,11 +14,7 @@ const poppins = Poppins({
   variable: "--font-body",
 })
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function StoreLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${playfair.variable} ${poppins.variable}`}>
       <body>{children}</body>
