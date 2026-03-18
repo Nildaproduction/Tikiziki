@@ -1,39 +1,45 @@
+// /app/store-dev/page.tsx
 "use client"
 
 export default function StoreDev() {
   return (
-    <main className="min-h-screen bg-[#f7f7f7] px-4 py-10">
+    <main className="min-h-screen bg-[#f5f5f5] px-6 py-12">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
-          <h1 className="text-3xl md:text-4xl font-semibold tracking-wide">
-            MKURUGENZI
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-wide text-gray-900">
+            TIKI ZIKi
           </h1>
 
           <input
             type="text"
-            placeholder="Enter key to search"
-            className="border px-4 py-2 w-full md:w-96 mt-4 md:mt-0 outline-none"
+            placeholder="Search products..."
+            className="border border-gray-300 px-4 py-2 w-full md:w-96 mt-4 md:mt-0 rounded-xl outline-none focus:ring-2 focus:ring-gray-300 focus:ring-offset-1"
           />
         </div>
 
-        {/* Products */}
+        {/* Products Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
 
-          {/* Card */}
-          {[1,2,3,4].map((item) => (
+          {/* Example Product Cards */}
+          {[1,2,3,4,5,6,7,8].map((item) => (
             <div
               key={item}
-              className="bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition"
+              className="bg-white rounded-2xl p-5 shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-1"
             >
-              <div className="h-56 bg-gray-200 rounded-xl mb-4"></div>
+              {/* Image Placeholder */}
+              <div className="h-56 bg-black-100 rounded-xl mb-4 flex items-center justify-center text-black-400 text-lg">
+                Product Image
+              </div>
 
-              <h2 className="text-sm md:text-base font-medium text-center">
+              {/* Product Name */}
+              <h2 className="text-base md:text-lg font-medium text-center text-black-900">
                 Beanie Hat – Black
               </h2>
 
-              <p className="text-center font-semibold mt-2">
+              {/* Product Price */}
+              <p className="text-center font-semibold mt-2 text-black-800">
                 KSh 900.00
               </p>
             </div>
