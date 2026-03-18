@@ -39,7 +39,7 @@ export default function StoreDev() {
               </h2>
 
               {/* Product Price */}
-              <p className="text-center font-semibold mt-2 text-black-800">
+              <p className="text-center font-semibold mt-2 text-gray-800">
                 KSh 900.00
               </p>
             </div>
