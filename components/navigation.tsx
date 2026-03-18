@@ -10,7 +10,7 @@ const navLinks = [
   { href: "#music", label: "Music" },
   { href: "#videos", label: "Videos" },
    { href: "/store", label: "Store" },
-  { href: "# PressKit", label: " PressKit" },
+  { href: "#press kit", label: " Press Kit" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ]
