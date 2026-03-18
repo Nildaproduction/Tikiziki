@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { Product } from "./types" // import the shared type
+import { Product } from "./types"
 
 export default function StoreDev() {
   const [cart, setCart] = useState<Product[]>([])
@@ -12,25 +12,41 @@ export default function StoreDev() {
       id: "1",
       name: "Tiki Ziki – Let's Lose (MP3)",
       price: 200,
-      category: "Merch",
-      images: ["/artist-hero.jpg.jpg"],
+      category: "Music",
+      images: ["/artist-hero.jpg"],
       stock: 100,
+      description: "High-quality MP3 download of Tiki Ziki's hit song 'Let's Lose'.",
+      type: "digital",
     },
     {
       id: "2",
-      name: "Tiki Ziki Black T-Shirt",
-      price: 1500,
-      category: "TShirt",
-      images: ["/artist-hero.jpg.jpg"],
+      name: "Tiki Ziki – Acoustic Vibes (MP3)",
+      price: 250,
+      category: "Music",
+      images: ["/artist-hero.jpg"],
       stock: 50,
+      description: "Exclusive acoustic track by Tiki Ziki in MP3 format.",
+      type: "digital",
     },
     {
       id: "3",
+      name: "Tiki Ziki Black T-Shirt",
+      price: 1500,
+      category: "TShirt",
+      images: ["/artist-hero.jpg"],
+      stock: 50,
+      description: "Comfortable black Tiki Ziki T-Shirt, 100% cotton.",
+      type: "physical",
+    },
+    {
+      id: "4",
       name: "Tiki Ziki Hoodie",
       price: 3500,
       category: "Merch",
-      images: ["/artist-hero.jpg.jpg"],
+      images: ["/artist-hero.jpg"],
       stock: 30,
+      description: "Premium hoodie featuring Tiki Ziki logo.",
+      type: "physical",
     },
   ]
 
