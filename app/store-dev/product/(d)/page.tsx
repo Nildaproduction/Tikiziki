@@ -3,7 +3,7 @@
 import { useParams } from "next/navigation"
 import { useState, useEffect } from "react"
 import { FaWhatsapp, FaShareAlt, FaCreditCard, FaGift, FaUndo } from "react-icons/fa"
-import { Product } from "../../types"
+import { Product } from "../../../types" // Corrected path
 
 const products: Product[] = [
   {
@@ -78,9 +78,19 @@ export default function ProductDetail() {
             </div>
 
             <div className="flex items-center gap-4 mb-6">
-              <button className="px-4 py-2 bg-gray-200 rounded-xl" onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
+              <button
+                className="px-4 py-2 bg-gray-200 rounded-xl"
+                onClick={() => setQuantity(Math.max(1, quantity - 1))}
+              >
+                -
+              </button>
               <span className="font-semibold text-black">{quantity}</span>
-              <button className="px-4 py-2 bg-gray-200 rounded-xl" onClick={() => setQuantity(quantity + 1)}>+</button>
+              <button
+                className="px-4 py-2 bg-gray-200 rounded-xl"
+                onClick={() => setQuantity(quantity + 1)}
+              >
+                +
+              </button>
             </div>
 
             <div className="flex flex-col md:flex-row gap-4 mb-8">
@@ -107,7 +117,6 @@ export default function ProductDetail() {
               <span className="text-black font-medium">7-Day Return</span>
             </div>
           </div>
-
         </div>
       </div>
     </main>
