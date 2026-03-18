@@ -5,13 +5,14 @@ import { useState, useEffect } from "react"
 import { FaWhatsapp, FaShareAlt, FaCreditCard, FaGift, FaUndo } from "react-icons/fa"
 import { Product } from "../types"
 
+// Products with placeholder images
 const products: Product[] = [
   {
     id: "1",
     name: "Tiki Ziki – Let's Lose (MP3)",
     price: 200,
     category: "Music",
-    images: ["/artist-hero.jpg"],
+    images: ["https://via.placeholder.com/400x400.png?text=Music+Product+1"],
     stock: 100,
     description: "High-quality MP3 download of Tiki Ziki's hit song 'Let's Lose'.",
     type: "digital",
@@ -21,7 +22,7 @@ const products: Product[] = [
     name: "Tiki Ziki – Acoustic Vibes (MP3)",
     price: 250,
     category: "Music",
-    images: ["/artist-hero.jpg"],
+    images: ["https://via.placeholder.com/400x400.png?text=Music+Product+2"],
     stock: 50,
     description: "Exclusive acoustic track by Tiki Ziki in MP3 format.",
     type: "digital",
@@ -31,7 +32,7 @@ const products: Product[] = [
     name: "Tiki Ziki Black T-Shirt",
     price: 1500,
     category: "TShirt",
-    images: ["/artist-hero.jpg"],
+    images: ["https://via.placeholder.com/400x400.png?text=T-Shirt+Product"],
     stock: 50,
     description: "Comfortable black Tiki Ziki T-Shirt, 100% cotton.",
     type: "physical",
@@ -41,7 +42,7 @@ const products: Product[] = [
     name: "Tiki Ziki Hoodie",
     price: 3500,
     category: "Merch",
-    images: ["/artist-hero.jpg"],
+    images: ["https://via.placeholder.com/400x400.png?text=Hoodie+Product"],
     stock: 30,
     description: "Premium hoodie featuring Tiki Ziki logo.",
     type: "physical",
@@ -63,21 +64,28 @@ export default function ProductDetail() {
   if (!product) return <p className="text-black text-center mt-20">Product not found.</p>
 
   return (
-    <main className="min-h-screen px-6 py-12">
+    <main className="min-h-screen px-6 py-12 bg-[#f5f5f5]">
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-12">
+        
+        {/* Product Image */}
         <div className="flex-1">
-          <img
-            src={product.images[0]}
-            alt={product.name}
-            className="w-full h-96 object-cover rounded-3xl mb-6"
-          />
+          {product.images[0] && (
+            <img
+              src={product.images[0]}
+              alt={product.name}
+              className="w-full h-96 object-cover rounded-3xl mb-6"
+            />
+          )}
         </div>
+
+        {/* Product Details */}
         <div className="flex-1 flex flex-col justify-between">
           <div>
             <h1 className="text-3xl font-semibold text-black mb-4">{product.name}</h1>
             <p className="text-black mb-4">{product.description}</p>
             <p className="text-black font-semibold mb-4">Price: KSh {product.price}</p>
 
+            {/* Share Buttons */}
             <div className="flex items-center gap-4 mb-6">
               <button className="flex items-center gap-2 px-3 py-2 bg-green-500 text-white rounded-xl hover:bg-green-600 transition">
                 <FaWhatsapp /> Share WhatsApp
@@ -87,6 +95,7 @@ export default function ProductDetail() {
               </button>
             </div>
 
+            {/* Quantity */}
             <div className="flex items-center gap-4 mb-6">
               <button
                 className="px-4 py-2 bg-gray-200 rounded-xl"
@@ -103,6 +112,7 @@ export default function ProductDetail() {
               </button>
             </div>
 
+            {/* Add to Cart / Buy Now */}
             <div className="flex flex-col md:flex-row gap-4 mb-8">
               <button className="flex-1 py-3 bg-red-600 text-white font-medium rounded-xl hover:bg-red-700 transition flex items-center justify-center gap-2">
                 Add to Cart
@@ -113,6 +123,7 @@ export default function ProductDetail() {
             </div>
           </div>
 
+          {/* Info Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
             <div className="flex flex-col items-center bg-gray-100 p-4 rounded-2xl">
               <FaCreditCard className="text-3xl text-black mb-2"/>
@@ -127,6 +138,7 @@ export default function ProductDetail() {
               <span className="text-black font-medium">7-Day Return</span>
             </div>
           </div>
+
         </div>
       </div>
     </main>
