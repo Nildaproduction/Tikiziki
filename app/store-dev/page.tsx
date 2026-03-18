@@ -1,11 +1,18 @@
-// /app/store-dev/page.tsx
-"use client"
+// Tikiziki/app/store-dev/page.tsx "use client"
 
 import Link from "next/link"
 import { useState } from "react"
-import { Product } from "./types"
 
-export default function StoreDev() {
+type Product = {
+  id: string
+  name: string
+  price: number
+  category: string
+  images: string[]
+  type: "digital" | "physical"
+}
+
+export default function StoreHome() {
   const [cart, setCart] = useState<Product[]>([])
 
   const products: Product[] = [
@@ -14,30 +21,32 @@ export default function StoreDev() {
       name: "Tiki Ziki – Let's Lose (MP3)",
       price: 200,
       category: "Music",
-      images: ["https://via.placeholder.com/400x400.png?text=Music+1"],
-      description: "High-quality MP3 download of Tiki Ziki's hit song 'Let's Lose'.",
+      images: ["/artist-hero.jpg.jpg"],
       type: "digital",
-      stock: 100,
     },
     {
       id: "2",
-      name: "Tiki Ziki Black T-Shirt",
-      price: 1500,
-      category: "TShirt",
-      images: ["https://via.placeholder.com/400x400.png?text=T-Shirt"],
-      description: "Comfortable black Tiki Ziki T-Shirt, 100% cotton.",
-      type: "physical",
-      stock: 50,
+      name: "Tiki Ziki – Acoustic Vibes (MP3)",
+      price: 250,
+      category: "Music",
+      images: ["/artist-hero.jpg.jpg"],
+      type: "digital",
     },
     {
       id: "3",
+      name: "Tiki Ziki Black T-Shirt",
+      price: 1500,
+      category: "Merch",
+      images: ["/artist-hero.jpg.jpg"],
+      type: "physical",
+    },
+    {
+      id: "4",
       name: "Tiki Ziki Hoodie",
       price: 3500,
       category: "Merch",
-      images: ["https://via.placeholder.com/400x400.png?text=Hoodie"],
-      description: "Premium hoodie featuring Tiki Ziki logo.",
+      images: ["/artist-hero.jpg.jpg"],
       type: "physical",
-      stock: 30,
     },
   ]
 
@@ -46,6 +55,7 @@ export default function StoreDev() {
   return (
     <main className="min-h-screen px-6 py-12 bg-[#f5f5f5]">
       <div className="max-w-7xl mx-auto">
+        {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-16">
           <h1 className="text-4xl md:text-5xl font-semibold tracking-wide text-black">
             TIKI ZIKI STORE
@@ -57,6 +67,7 @@ export default function StoreDev() {
           />
         </div>
 
+        {/* Products Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {products.map((product) => (
             <Link key={product.id} href={`/store-dev/product/${product.id}`}>
@@ -76,10 +87,21 @@ export default function StoreDev() {
             </Link>
           ))}
         </div>
+
+        {/* Cart Preview */}
+        {cart.length > 0 && (
+          <div className="fixed bottom-6 right-6 bg-white p-4 rounded-2xl shadow-lg w-72">
+            <h3 className="font-semibold text-black mb-2">Cart ({cart.length})</h3>
+            <ul>
+              {cart.map((item, idx) => (
+                <li key={idx} className="text-black text-sm">
+                  {item.name} – KSh {item.price}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
-    </main>
-  )
-}
     </main>
   )
 }
