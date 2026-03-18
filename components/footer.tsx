@@ -11,7 +11,7 @@ const navLinks = [
   { href: "#home", label: "Home" },
   { href: "#music", label: "Music" },
   { href: "#videos", label: "Videos" },
-  { href: "#press-kit", label: "Press Kit" },
+  { href: "#press-kit", label: "PressKit" },
   { href: "#about", label: "About" },
   { href: "#contact", label: "Contact" },
 ]
