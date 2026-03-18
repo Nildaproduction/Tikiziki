@@ -1,10 +1,17 @@
-// /app/store-dev/product/[id]/page.tsx
-"use client"
+// Tikiziki/app/store-dev/product/[id]/page.tsx "use client"
 
 import { useParams, useRouter } from "next/navigation"
 import { useState, useEffect } from "react"
-import { FaWhatsapp, FaShareAlt, FaCreditCard, FaGift, FaUndo } from "react-icons/fa"
-import { Product } from "../../../types"
+
+type Product = {
+  id: string
+  name: string
+  price: number
+  category: string
+  images: string[]
+  description: string
+  type: "digital" | "physical"
+}
 
 const products: Product[] = [
   {
@@ -12,53 +19,57 @@ const products: Product[] = [
     name: "Tiki Ziki – Let's Lose (MP3)",
     price: 200,
     category: "Music",
-    images: ["https://via.placeholder.com/400x400.png?text=Music+1"],
+    images: ["/artist-hero.jpg.jpg"],
     description: "High-quality MP3 download of Tiki Ziki's hit song 'Let's Lose'.",
     type: "digital",
-    stock: 100,
   },
   {
     id: "2",
-    name: "Tiki Ziki Black T-Shirt",
-    price: 1500,
-    category: "TShirt",
-    images: ["https://via.placeholder.com/400x400.png?text=T-Shirt"],
-    description: "Comfortable black Tiki Ziki T-Shirt, 100% cotton.",
-    type: "physical",
-    stock: 50,
+    name: "Tiki Ziki – Acoustic Vibes (MP3)",
+    price: 250,
+    category: "Music",
+    images: ["/artist-hero.jpg.jpg"],
+    description: "Exclusive acoustic track by Tiki Ziki in MP3 format.",
+    type: "digital",
   },
   {
     id: "3",
+    name: "Tiki Ziki Black T-Shirt",
+    price: 1500,
+    category: "Merch",
+    images: ["/artist-hero.jpg.jpg"],
+    description: "Comfortable black Tiki Ziki T-Shirt, 100% cotton.",
+    type: "physical",
+  },
+  {
+    id: "4",
     name: "Tiki Ziki Hoodie",
     price: 3500,
     category: "Merch",
-    images: ["https://via.placeholder.com/400x400.png?text=Hoodie"],
+    images: ["/artist-hero.jpg.jpg"],
     description: "Premium hoodie featuring Tiki Ziki logo.",
     type: "physical",
-    stock: 30,
   },
 ]
 
 export default function ProductDetail() {
-  const { id } = useParams()
   const router = useRouter()
-  const [product, setProduct] = useState<Product | null>(null)
+  const { id } = useParams() || {}
   const [quantity, setQuantity] = useState(1)
+  const [product, setProduct] = useState<Product | null>(null)
 
   useEffect(() => {
+    if (!id) return
     const found = products.find((p) => p.id === id)
     setProduct(found || null)
   }, [id])
 
   if (!product) return <p className="text-black text-center mt-20">Product not found.</p>
 
-  const goToCheckout = () => {
-    router.push(`/store-dev/checkout?productId=${product.id}&quantity=${quantity}`)
-  }
-
   return (
-    <main className="min-h-screen px-6 py-12 bg-[#f5f5f5]">
+    <main className="min-h-screen px-6 py-12">
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-12">
+        {/* Product Image */}
         <div className="flex-1">
           <img
             src={product.images[0]}
@@ -66,21 +77,32 @@ export default function ProductDetail() {
             className="w-full h-96 object-cover rounded-3xl mb-6"
           />
         </div>
+
+        {/* Product Details */}
         <div className="flex-1 flex flex-col justify-between">
           <div>
             <h1 className="text-3xl font-semibold text-black mb-4">{product.name}</h1>
             <p className="text-black mb-4">{product.description}</p>
-            <p className="text-black font-semibold mb-4">KSh {product.price}</p>
 
+            {/* Share Buttons */}
             <div className="flex items-center gap-4 mb-6">
               <button className="flex items-center gap-2 px-3 py-2 bg-green-500 text-white rounded-xl hover:bg-green-600 transition">
-                <FaWhatsapp /> Share WhatsApp
+                {/* WhatsApp SVG */}
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M..." />
+                </svg>
+                Share WhatsApp
               </button>
               <button className="flex items-center gap-2 px-3 py-2 bg-gray-200 text-black rounded-xl hover:bg-gray-300 transition">
-                <FaShareAlt /> Share
+                {/* Generic Share SVG */}
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M..." />
+                </svg>
+                Share
               </button>
             </div>
 
+            {/* Quantity Selector */}
             <div className="flex items-center gap-4 mb-6">
               <button
                 className="px-4 py-2 bg-gray-200 rounded-xl"
@@ -97,30 +119,42 @@ export default function ProductDetail() {
               </button>
             </div>
 
+            {/* Add to Cart / Buy Now */}
             <div className="flex flex-col md:flex-row gap-4 mb-8">
-              <button className="flex-1 py-3 bg-red-600 text-white font-medium rounded-xl hover:bg-red-700 transition">
+              <button className="flex-1 py-3 bg-red-600 text-white font-medium rounded-xl hover:bg-red-700 transition flex items-center justify-center gap-2">
+                {/* Cart SVG */}
+                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M..." />
+                </svg>
                 Add to Cart
               </button>
-              <button
-                className="flex-1 py-3 bg-black text-white font-medium rounded-xl hover:bg-gray-900 transition"
-                onClick={goToCheckout}
-              >
+              <button className="flex-1 py-3 bg-black text-white font-medium rounded-xl hover:bg-gray-900 transition">
                 Buy Now
               </button>
             </div>
           </div>
 
+          {/* Features */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
             <div className="flex flex-col items-center bg-gray-100 p-4 rounded-2xl">
-              <FaCreditCard className="text-3xl text-black mb-2"/>
+              {/* Payment SVG */}
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M..." />
+              </svg>
               <span className="text-black font-medium">Convenient Payment</span>
             </div>
             <div className="flex flex-col items-center bg-gray-100 p-4 rounded-2xl">
-              <FaGift className="text-3xl text-black mb-2"/>
+              {/* Discount SVG */}
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M..." />
+              </svg>
               <span className="text-black font-medium">Free Discount Code</span>
             </div>
             <div className="flex flex-col items-center bg-gray-100 p-4 rounded-2xl">
-              <FaUndo className="text-3xl text-black mb-2"/>
+              {/* Return SVG */}
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 mb-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M..." />
+              </svg>
               <span className="text-black font-medium">7-Day Return</span>
             </div>
           </div>
