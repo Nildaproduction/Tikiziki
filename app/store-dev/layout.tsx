@@ -1,4 +1,4 @@
-// Tikiziki/app/store-dev/layout.tsx
+// /app/store-dev/layout.tsx
 import "./globals.css"
 import { Playfair_Display, Poppins } from "next/font/google"
 
