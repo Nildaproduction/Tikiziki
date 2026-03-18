@@ -9,7 +9,7 @@ export default function StoreDev() {
         {/* Header */}
         <div className="flex flex-col md:flex-row justify-between items-center mb-12">
           <h1 className="text-3xl md:text-4xl font-semibold tracking-wide text-gray-900">
-            TIKI ZIKi
+            TIKI ZIKI
           </h1>
 
           <input
@@ -34,7 +34,7 @@ export default function StoreDev() {
               </div>
 
               {/* Product Name */}
-              <h2 className="text-base md:text-lg font-medium text-center text-black-900">
+              <h2 className="text-base md:text-lg font-medium text-center text-gray-900">
                 Beanie Hat – Black
               </h2>
 
