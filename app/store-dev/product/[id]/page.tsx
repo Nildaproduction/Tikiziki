@@ -5,14 +5,13 @@ import { useState, useEffect } from "react"
 import { FaWhatsapp, FaShareAlt, FaCreditCard, FaGift, FaUndo } from "react-icons/fa"
 import { Product } from "../../types"
 
-// Products array
 const products: Product[] = [
   {
     id: "1",
     name: "Tiki Ziki – Let's Lose (MP3)",
     price: 200,
     category: "Music",
-    images: ["https://via.placeholder.com/400x400.png?text=Music+Product+1"],
+    images: ["https://via.placeholder.com/400x400.png?text=Music+1"],
     stock: 100,
   },
   {
@@ -20,15 +19,15 @@ const products: Product[] = [
     name: "Tiki Ziki – Acoustic Vibes (MP3)",
     price: 250,
     category: "Music",
-    images: ["https://via.placeholder.com/400x400.png?text=Music+Product+2"],
+    images: ["https://via.placeholder.com/400x400.png?text=Music+2"],
     stock: 50,
   },
   {
     id: "3",
     name: "Tiki Ziki Black T-Shirt",
     price: 1500,
-    category: "Merch",
-    images: ["https://via.placeholder.com/400x400.png?text=T-Shirt+Product"],
+    category: "TShirt",
+    images: ["https://via.placeholder.com/400x400.png?text=T-Shirt"],
     stock: 50,
   },
   {
@@ -36,16 +35,15 @@ const products: Product[] = [
     name: "Tiki Ziki Hoodie",
     price: 3500,
     category: "Merch",
-    images: ["https://via.placeholder.com/400x400.png?text=Hoodie+Product"],
+    images: ["https://via.placeholder.com/400x400.png?text=Hoodie"],
     stock: 30,
   },
 ]
 
 export default function ProductDetail() {
-  const params = useParams()
-  const { id } = params
-  const [quantity, setQuantity] = useState(1)
+  const { id } = useParams()
   const [product, setProduct] = useState<Product | null>(null)
+  const [quantity, setQuantity] = useState(1)
 
   useEffect(() => {
     const found = products.find((p) => p.id === id)
@@ -57,15 +55,12 @@ export default function ProductDetail() {
   return (
     <main className="min-h-screen px-6 py-12 bg-[#f5f5f5]">
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-12">
-
         <div className="flex-1">
-          {product.images[0] && (
-            <img
-              src={product.images[0]}
-              alt={product.name}
-              className="w-full h-96 object-cover rounded-3xl mb-6"
-            />
-          )}
+          <img
+            src={product.images[0]}
+            alt={product.name}
+            className="w-full h-96 object-cover rounded-3xl mb-6"
+          />
         </div>
 
         <div className="flex-1 flex flex-col justify-between">
@@ -89,7 +84,7 @@ export default function ProductDetail() {
             </div>
 
             <div className="flex flex-col md:flex-row gap-4 mb-8">
-              <button className="flex-1 py-3 bg-red-600 text-white font-medium rounded-xl hover:bg-red-700 transition flex items-center justify-center gap-2">
+              <button className="flex-1 py-3 bg-red-600 text-white font-medium rounded-xl hover:bg-red-700 transition">
                 Add to Cart
               </button>
               <button className="flex-1 py-3 bg-black text-white font-medium rounded-xl hover:bg-gray-900 transition">
