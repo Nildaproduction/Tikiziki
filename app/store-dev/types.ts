@@ -1,9 +1,10 @@
-// Tikiziki/app/store-dev/types.ts
 export type Product = {
   id: string
   name: string
   price: number
-  category: "Vinyl" | "TShirt" | "Merch"
+  category: "Music" | "TShirt" | "Merch"  // Music included, Vinyl removed
   images: string[]
   stock: number
+  description: string
+  type: "digital" | "physical"  // Music is digital, merch is physical
 }
