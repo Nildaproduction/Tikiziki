@@ -1,11 +1,11 @@
 "use client"
 
-import { useRouter } from "next/router"
+import { useParams } from "next/navigation"
 import { useState, useEffect } from "react"
 import { FaWhatsapp, FaShareAlt, FaCreditCard, FaGift, FaUndo } from "react-icons/fa"
-import { Product } from "../types"
+import { Product } from "../../types"
 
-// Products with placeholder images
+// Products array
 const products: Product[] = [
   {
     id: "1",
@@ -14,8 +14,6 @@ const products: Product[] = [
     category: "Music",
     images: ["https://via.placeholder.com/400x400.png?text=Music+Product+1"],
     stock: 100,
-    description: "High-quality MP3 download of Tiki Ziki's hit song 'Let's Lose'.",
-    type: "digital",
   },
   {
     id: "2",
@@ -24,18 +22,14 @@ const products: Product[] = [
     category: "Music",
     images: ["https://via.placeholder.com/400x400.png?text=Music+Product+2"],
     stock: 50,
-    description: "Exclusive acoustic track by Tiki Ziki in MP3 format.",
-    type: "digital",
   },
   {
     id: "3",
     name: "Tiki Ziki Black T-Shirt",
     price: 1500,
-    category: "TShirt",
+    category: "Merch",
     images: ["https://via.placeholder.com/400x400.png?text=T-Shirt+Product"],
     stock: 50,
-    description: "Comfortable black Tiki Ziki T-Shirt, 100% cotton.",
-    type: "physical",
   },
   {
     id: "4",
@@ -44,19 +38,16 @@ const products: Product[] = [
     category: "Merch",
     images: ["https://via.placeholder.com/400x400.png?text=Hoodie+Product"],
     stock: 30,
-    description: "Premium hoodie featuring Tiki Ziki logo.",
-    type: "physical",
   },
 ]
 
 export default function ProductDetail() {
-  const router = useRouter()
-  const { id } = router.query
+  const params = useParams()
+  const { id } = params
   const [quantity, setQuantity] = useState(1)
   const [product, setProduct] = useState<Product | null>(null)
 
   useEffect(() => {
-    if (!id) return
     const found = products.find((p) => p.id === id)
     setProduct(found || null)
   }, [id])
@@ -66,8 +57,7 @@ export default function ProductDetail() {
   return (
     <main className="min-h-screen px-6 py-12 bg-[#f5f5f5]">
       <div className="max-w-4xl mx-auto flex flex-col md:flex-row gap-12">
-        
-        {/* Product Image */}
+
         <div className="flex-1">
           {product.images[0] && (
             <img
@@ -78,14 +68,11 @@ export default function ProductDetail() {
           )}
         </div>
 
-        {/* Product Details */}
         <div className="flex-1 flex flex-col justify-between">
           <div>
             <h1 className="text-3xl font-semibold text-black mb-4">{product.name}</h1>
-            <p className="text-black mb-4">{product.description}</p>
-            <p className="text-black font-semibold mb-4">Price: KSh {product.price}</p>
+            <p className="text-black mb-4">Price: KSh {product.price}</p>
 
-            {/* Share Buttons */}
             <div className="flex items-center gap-4 mb-6">
               <button className="flex items-center gap-2 px-3 py-2 bg-green-500 text-white rounded-xl hover:bg-green-600 transition">
                 <FaWhatsapp /> Share WhatsApp
@@ -95,24 +82,12 @@ export default function ProductDetail() {
               </button>
             </div>
 
-            {/* Quantity */}
             <div className="flex items-center gap-4 mb-6">
-              <button
-                className="px-4 py-2 bg-gray-200 rounded-xl"
-                onClick={() => setQuantity(Math.max(1, quantity - 1))}
-              >
-                -
-              </button>
+              <button className="px-4 py-2 bg-gray-200 rounded-xl" onClick={() => setQuantity(Math.max(1, quantity - 1))}>-</button>
               <span className="font-semibold text-black">{quantity}</span>
-              <button
-                className="px-4 py-2 bg-gray-200 rounded-xl"
-                onClick={() => setQuantity(quantity + 1)}
-              >
-                +
-              </button>
+              <button className="px-4 py-2 bg-gray-200 rounded-xl" onClick={() => setQuantity(quantity + 1)}>+</button>
             </div>
 
-            {/* Add to Cart / Buy Now */}
             <div className="flex flex-col md:flex-row gap-4 mb-8">
               <button className="flex-1 py-3 bg-red-600 text-white font-medium rounded-xl hover:bg-red-700 transition flex items-center justify-center gap-2">
                 Add to Cart
@@ -123,7 +98,6 @@ export default function ProductDetail() {
             </div>
           </div>
 
-          {/* Info Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6">
             <div className="flex flex-col items-center bg-gray-100 p-4 rounded-2xl">
               <FaCreditCard className="text-3xl text-black mb-2"/>
