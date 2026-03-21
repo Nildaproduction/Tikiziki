@@ -1,0 +1,13 @@
+{
+  "/_global-error/page": "app/_global-error/page.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/account/page": "app/account/page.js",
+  "/auth/error/page": "app/auth/error/page.js",
+  "/auth/login/page": "app/auth/login/page.js",
+  "/auth/sign-up-success/page": "app/auth/sign-up-success/page.js",
+  "/auth/sign-up/page": "app/auth/sign-up/page.js",
+  "/page": "app/page.js",
+  "/store/cart/page": "app/store/cart/page.js",
+  "/store/page": "app/store/page.js",
+  "/store/product/[id]/page": "app/store/product/[id]/page.js"
+}
