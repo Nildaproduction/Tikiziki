@@ -46,8 +46,8 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en">
-      <body className={`${playfair.variable} ${poppins.variable} font-sans antialiased`}>
+    <html lang="en" className={`${playfair.variable} ${poppins.variable}`}>
+      <body className="font-sans antialiased">
         <CartProvider>
           {children}
         </CartProvider>
