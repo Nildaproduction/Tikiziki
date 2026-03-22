@@ -1,21 +1,11 @@
 import type { Metadata } from 'next'
 import { Playfair_Display, Poppins } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import { CartProvider } from '../context/cart-context' // fixed relative import
+import { CartProvider } from '@/context/cart-context'
 import './globals.css'
 
-const playfair = Playfair_Display({ 
-  subsets: ["latin"],
-  variable: '--font-playfair',
-  display: 'swap',
-});
-
-const poppins = Poppins({ 
-  subsets: ["latin"],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-poppins',
-  display: 'swap',
-});
+const playfair = Playfair_Display({ subsets: ["latin"], variable: '--font-playfair', display: 'swap' });
+const poppins = Poppins({ subsets: ["latin"], weight: ['300','400','500','600','700'], variable: '--font-poppins', display: 'swap' });
 
 export const metadata: Metadata = {
   title: 'TIKIZIKI STORE | Music & Merch',
@@ -31,9 +21,7 @@ export const metadata: Metadata = {
   },
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{ children: React.ReactNode }>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${playfair.variable} ${poppins.variable}`}>
       <body className="font-sans antialiased">
