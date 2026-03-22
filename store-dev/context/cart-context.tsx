@@ -1,7 +1,7 @@
 'use client';
 
 import { createContext, useContext, useState, useCallback, ReactNode } from 'react';
-import { Product, CartItem } from '@/types/product';
+import { Product, CartItem } from '../../types/product'; // fixed relative import
 
 interface CartContextType {
   items: CartItem[];
@@ -61,9 +61,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
     );
   }, [removeFromCart]);
 
-  const clearCart = useCallback(() => {
-    setItems([]);
-  }, []);
+  const clearCart = useCallback(() => setItems([]), []);
 
   const getCartTotal = useCallback(() => {
     return items.reduce((total, item) => total + item.product.price * item.quantity, 0);
