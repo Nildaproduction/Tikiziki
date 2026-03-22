@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import StoreDevPage from "../../store-dev/app/page";
 
-export default function Home() {
-  redirect('/store');
+export default function Page() {
+  return <storedevpage />;
 }
