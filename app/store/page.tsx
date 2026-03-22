@@ -1,5 +1,1 @@
-import { redirect } from "next/navigation";
-
-export default function Home() {
-  redirect("/store");
-}
+export { default } from '../../store-dev/app/page';
