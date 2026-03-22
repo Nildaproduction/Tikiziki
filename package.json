@@ -6,7 +6,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "store-dev": "npm run dev --prefix store-dev",
+    "store-build": "npm run build --prefix store-dev",
+    "store-start": "npm run start --prefix store-dev"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
