@@ -1,13 +1,14 @@
+// next.config.js
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   async rewrites() {
     return [
       {
         source: '/store/:path*',
-        destination: 'tikizikike.vercel.app/:path*',
+        destination: 'https://tikizikike.vercel.app/:path*',
       },
-    ];
+    ]
   },
-};
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig
