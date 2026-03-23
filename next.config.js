@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: '/store/:path*',
-        destination: 'https://tikizikistore-y5g8-nildaproductions-projects.vercel.app/:path*',
+        destination: 'tikizikike.vercel.app/:path*',
       },
     ];
   },
