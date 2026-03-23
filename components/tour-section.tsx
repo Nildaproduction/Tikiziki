@@ -4,9 +4,18 @@ import { Button } from "@/components/ui/button"
 import { MapPin, Calendar } from "lucide-react"
 import Link from "next/link"
 
-const tourDates = [
-  // You can leave this empty if there are currently no shows
-  // Example future show:
+// Define the type for a tour date
+type TourDate = {
+  date: string
+  venue: string
+  city: string
+  status: "Coming Soon" | "On Sale" | "Sold Out"
+  link: string
+}
+
+// Explicitly type the array
+const tourDates: TourDate[] = [
+  // Example (can be empty if no shows yet)
   // {
   //   date: "Jun 2, 2026",
   //   venue: "Tiki Ziki Festival",
@@ -41,7 +50,6 @@ export function TourSection() {
     <section id="tour" className="py-24 bg-card">
       <div className="container mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-16">
-
           {/* Tour Dates */}
           <div>
             <p className="text-primary tracking-[0.3em] text-sm mb-4">ON THE ROAD</p>
@@ -107,7 +115,6 @@ export function TourSection() {
               ))}
             </div>
           </div>
-
         </div>
       </div>
     </section>
