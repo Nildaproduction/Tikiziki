@@ -1,18 +1,18 @@
-'use client'
+'use client';
 
 import { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 
-export default function StorePage() {
+export default function StoreWrapper() {
   const searchParams = useSearchParams();
   const productId = searchParams.get('product');
 
+  const storeBaseUrl = 'https://tikizikike.vercel.app'; // store URL
+
   useEffect(() => {
-    if (productId) {
-      const iframe = document.getElementById('store-iframe') as HTMLIFrameElement;
-      if (iframe) {
-        iframe.src = `https://tikiziki.vercel.app/store?product=${productId}`;
-      }
+    const iframe = document.getElementById('store-iframe') as HTMLIFrameElement;
+    if (iframe) {
+      iframe.src = productId ? `${storeBaseUrl}/store/product/${productId}` : `${storeBaseUrl}/store`;
     }
   }, [productId]);
 
@@ -20,7 +20,7 @@ export default function StorePage() {
     <div className="w-full min-h-screen">
       <iframe
         id="store-iframe"
-        src="https://tikiziki.vercel.app/store"
+        src={storeBaseUrl + '/store'}
         className="w-full h-screen border-none"
         title="TIKIZIKI Store"
       />
