@@ -7,21 +7,23 @@ export default function StoreWrapper() {
   const searchParams = useSearchParams();
   const productId = searchParams.get('product');
 
-  const storeBaseUrl = 'https://tikizikike.vercel.app';
+  const storeBaseUrl = 'https://tikizikike.vercel.app'; // store URL
 
   useEffect(() => {
     const iframe = document.getElementById('store-iframe') as HTMLIFrameElement;
     if (iframe) {
-      iframe.src = productId ? `${storeBaseUrl}/store/product/${productId}` : `${storeBaseUrl}/store`;
+      iframe.src = productId
+        ? `${storeBaseUrl}/store/product/${productId}`
+        : `${storeBaseUrl}/store`;
     }
   }, [productId]);
 
   return (
-    <div className="w-full min-h-screen">
+    <div className="w-full min-h-screen flex flex-col">
       <iframe
         id="store-iframe"
         src={storeBaseUrl + '/store'}
-        className="w-full h-screen border-none"
+        className="flex-1 w-full h-full border-none"
         title="TIKIZIKI Store"
       />
     </div>
