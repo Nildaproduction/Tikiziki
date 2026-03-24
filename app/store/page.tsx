@@ -7,7 +7,7 @@ export default function StoreWrapper() {
   const searchParams = useSearchParams();
   const productId = searchParams.get('product');
 
-  const storeBaseUrl = 'https://tikizikike.vercel.app'; // store URL
+  const storeBaseUrl = 'https://tikizikike.vercel.app';
 
   useEffect(() => {
     const iframe = document.getElementById('store-iframe') as HTMLIFrameElement;
