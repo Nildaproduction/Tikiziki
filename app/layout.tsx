@@ -1,13 +1,18 @@
 import type { Metadata, Viewport } from 'next'
-import { Merriweather } from 'next/font/google'
+import { Oswald, Archivo_Black } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-// Serif font similar to Times New Roman
-const merriweather = Merriweather({
+const oswald = Oswald({
   subsets: ['latin'],
-  variable: '--font-serif',
-});
+  variable: '--font-heading',
+  weight: ['400','500','700']
+})
+
+const archivoBlack = Archivo_Black({
+  subsets: ['latin'],
+  variable: '--font-display'
+})
 
 export const metadata: Metadata = {
   title: 'Tiki ziki | Official website',
@@ -37,14 +42,10 @@ export const viewport: Viewport = {
   themeColor: '#141414',
 }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${merriweather.variable} font-serif antialiased`}>
+      <body className={`${oswald.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>
