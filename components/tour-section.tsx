@@ -30,8 +30,7 @@ const news = [
     date: "Mar 27, 2026",
     title: "Tiki Ziki x H.O.B Drop New Visuals for “I’M HIM",
     excerpt: "Tiki Ziki teams up with H.O.B on I’M HIM, a bold hip-hop release driven by confidence, ambition, and identity.
-      The track delivers powerful verses over a hard-hitting beat, highlighting both artists’ energy and style.
-  The official video brings the vision to life with strong visuals that match the track’s message, marking another step forward in Tiki Ziki’s growing catalog.",
+      The track delivers powerful verses over a hard-hitting beat, highlighting both artists’ energy and style.",
   },
   {
     date: "Feb 6, 2026",
