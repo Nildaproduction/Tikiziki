@@ -1,16 +1,12 @@
 import type { Metadata, Viewport } from 'next'
-import { Sora, Space_Grotesk } from 'next/font/google'
+import { Merriweather } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
-const sora = Sora({ 
-  subsets: ["latin"],
-  variable: '--font-sans'
-});
-
-const spaceGrotesk = Space_Grotesk({ 
-  subsets: ["latin"],
-  variable: '--font-heading'
+// Serif font similar to Times New Roman
+const merriweather = Merriweather({
+  subsets: ['latin'],
+  variable: '--font-serif',
 });
 
 export const metadata: Metadata = {
@@ -48,7 +44,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark">
-      <body className={`${sora.variable} ${spaceGrotesk.variable} font-sans antialiased`}>
+      <body className={`${merriweather.variable} font-serif antialiased`}>
         {children}
         <Analytics />
       </body>
