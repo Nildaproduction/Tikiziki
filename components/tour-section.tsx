@@ -29,24 +29,24 @@ const news = [
    {
     date: "Mar 27, 2026",
     title: "Tiki Ziki x H.O.B Drop New Visuals for “I’M HIM",
-    excerpt: "Tiki Ziki teams up with H.O.B on I’M HIM, a bold hip-hop release driven by confidence, ambition, and identity.
-      The track delivers powerful verses over a hard-hitting beat, highlighting both artists’ energy and style.",
-  },
-  {
-    date: "Feb 6, 2026",
-    title: "New Single 'Don't You Know' Out Now",
-    excerpt: "The highly anticipated single featuring the Baddest coast producer is finally here.",
-  },
-  {
-    date: "Mar 14, 2026",
-    title: "Marchandise!!",
-    excerpt: "Tiki ziki's Marchandise coming soon.",
+    excerpt: "Tiki Ziki teams up with H.O.B on I’M HIM, a bold hip-hop release driven by confidence, ambition, and identity.",
   },
   {
     date: "Mar 15, 2026",
     title: "Collaboration with International Artists",
     excerpt: "Exciting new collaborations coming soon with artists from around the globe.",
   },
+   {
+    date: "Mar 14, 2026",
+    title: "Marchandise!!",
+    excerpt: "Tiki ziki's Marchandise coming soon.",
+  },
+  {
+    date: "Feb 6, 2026",
+    title: "New Single 'Don't You Know' Out Now",
+    excerpt: "The highly anticipated single featuring the Baddest coast producer is finally here.",
+  },
+  
 ]
 
 export function TourSection() {
