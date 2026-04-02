@@ -3,6 +3,11 @@
 import * as React from 'react'
 
 const videos = [
+ {
+    title: "I'M HIM X H.O.B (Official Music Video)",
+    videoId: "q9m5aQIO2H50bjA", // YouTube ID only
+    type: "Music Video",
+  }, 
   {
     title: "Don't You Know (Official Music Video)",
     videoId: "JQg6xW434Ek", // YouTube ID only
