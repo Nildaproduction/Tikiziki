@@ -3,6 +3,16 @@ import Link from "next/link"
 import { ExternalLink } from "lucide-react"
 
 const releases = [
+ {
+    title: "I'M HIM X H.O.B",
+    type: "Single",
+    year: "2026",
+    cover: "/images/album-1.jpg",
+    spotify: "https://open.spotify.com/track/1al3zgZgaKwuIbX3JEm4tK",
+    audiomack: "https://audiomack.com/Tiki-Ziki-Ke/song/dont-you-know",
+    youtube: "https://youtu.be/JQg6xW434Ek",
+    apple: "https://music.apple.com/fr/album/dont-you-know-single/1869739518",
+  },
   {
     title: "Don't You Know",
     type: "Single",
