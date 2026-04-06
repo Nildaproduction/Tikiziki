@@ -28,7 +28,7 @@ const tourDates: TourDate[] = [
 const news = [
    {
     date: "Mar 27, 2026",
-    title: "Tiki Ziki x H.O.B Drop New Visuals for “I’M HIM",
+    title: "Tiki Ziki x H.O.B Drop New Visuals for I’M HIM",
     excerpt: "Tiki Ziki teams up with H.O.B on I’M HIM, a bold hip-hop release driven by confidence, ambition, and identity.",
   },
   {
