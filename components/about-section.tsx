@@ -1,9 +1,9 @@
 import Image from "next/image"
 
 const highlights = [
-  { stat: "10K+", label: "Monthly Listeners" },
+  { stat: "15K+", label: "Monthly Listeners" },
   { stat: "4+", label: "Shows" },
-  { stat: "16", label: "Total Releases" },
+  { stat: "17", label: "Total Releases" },
   { stat: "0", label: "Awards" },
 ]
 
@@ -29,7 +29,7 @@ export function AboutSection() {
             
             <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
               <p>
-               Tiki Ziki is an emerging Afropop and Afrobeat artist from Mombasa, Kenya.
+               Tiki ziki is an emerging Afropop and Afrobeat artist from Mombasa, Kenya.
                 His music blends contemporary African rhythms with melodic storytelling,
                 creating a sound influenced by modern Afrobeats while maintaining a distinct
                 coastal East African identity Through his releases, he focuses on themes of ambition,
@@ -37,14 +37,14 @@ export function AboutSection() {
           
               </p>
               <p>
-                Over time, Tiki Ziki has developed a growing catalog of songs distributed 
+                Over time, Tiki ziki has developed a growing catalog of songs distributed 
                 on digital streaming platforms, building a presence among listeners interested 
                 in Afropop and Afrobeat music. His work combines catchy melodies with rhythmic
                 production,positioning him within the new generation of independent African artists 
                 working to expand their audience both locally and internationally.
               </p>
               <p>
-                Working with Top Sound Music Label, Tiki Ziki continues to develop new projects 
+                Working with Top Sound Music Label, Tiki ziki continues to develop new projects 
                and collaborations aimed at reaching wider global audiences. His music strategy 
                 includes digital distribution, online promotion, and performance opportunities
                 designed to strengthen his presence within the evolving Afrobeats scene.
