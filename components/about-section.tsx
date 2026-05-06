@@ -2,65 +2,81 @@ import Image from "next/image"
 
 const highlights = [
   { stat: "15K+", label: "Monthly Listeners" },
-  { stat: "4+", label: "Shows" },
-  { stat: "17", label: "Total Releases" },
-  { stat: "0", label: "Awards" },
+  { stat: "4+", label: "Live Shows" },
+  { stat: "20", label: "Total Releases" },
+  { stat: "3", label: "Years Active" },
 ]
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 bg-background">
-      <div className="container mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Image */}
-          <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
-            <Image
-              src="/images/artist-about.jpg"
-              alt="Kofi Asante portrait"
-              fill
-              className="object-cover"
-            />
+    <section id="about" className="py-28 bg-background relative overflow-hidden">
+      {/* Decorative watermark */}
+      <div
+        className="absolute right-0 top-1/2 -translate-y-1/2 text-[18rem] font-black leading-none select-none pointer-events-none tracking-tighter text-white/[0.025]"
+        aria-hidden="true"
+      >
+        TZ
+      </div>
+
+      <div className="container mx-auto px-6 relative">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+
+          {/* Image — with offset border accent */}
+          <div className="relative">
+            <div className="absolute -top-3 -left-3 w-full h-full border border-primary/20 pointer-events-none" />
+            <div className="relative aspect-[4/5] overflow-hidden">
+              <Image
+                src="/images/artist-about.jpg"
+                alt="Tiki Ziki portrait"
+                fill
+                className="object-cover grayscale-[15%] hover:grayscale-0 transition-all duration-700"
+              />
+              {/* Corner accent */}
+              <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background/60 to-transparent" />
+            </div>
           </div>
 
           {/* Content */}
           <div>
-            <p className="text-primary tracking-[0.3em] text-sm mb-4">THE ARTIST</p>
-            <h2 className="text-4xl md:text-5xl font-bold tracking-tight mb-8">About Tiki ziki</h2>
-            
-            <div className="space-y-6 text-muted-foreground text-lg leading-relaxed">
+            <p className="text-primary tracking-[0.3em] text-xs font-bold uppercase mb-4">The Artist</p>
+            <h2 className="text-4xl md:text-5xl font-black tracking-tight mb-8 leading-tight">
+              About<br />
+              <span className="text-primary">Tiki Ziki</span>
+            </h2>
+
+            <div className="space-y-5 text-muted-foreground leading-relaxed">
               <p>
-               Tiki ziki is an emerging Afropop and Afrobeat artist from Mombasa, Kenya.
-                His music blends contemporary African rhythms with melodic storytelling,
-                creating a sound influenced by modern Afrobeats while maintaining a distinct
-                coastal East African identity Through his releases, he focuses on themes of ambition,
-                relationships, and everyday life experiences.
-          
+                Tiki Ziki is an emerging Afropop and Afrobeat artist from Mombasa, Kenya. His music blends
+                contemporary African rhythms with melodic storytelling, creating a sound influenced by
+                modern Afrobeats while maintaining a distinct coastal East African identity. Through his
+                releases, he focuses on themes of ambition, relationships, and everyday life.
               </p>
               <p>
-                Over time, Tiki ziki has developed a growing catalog of songs distributed 
-                on digital streaming platforms, building a presence among listeners interested 
-                in Afropop and Afrobeat music. His work combines catchy melodies with rhythmic
-                production,positioning him within the new generation of independent African artists 
-                working to expand their audience both locally and internationally.
+                Over time, Tiki Ziki has developed a growing catalog of songs on all major digital
+                streaming platforms, building a presence among listeners drawn to Afropop and Afrobeat.
+                His work combines catchy melodies with rhythmic production, positioning him within the
+                new generation of independent African artists expanding their audience globally.
               </p>
               <p>
-                Working with Top Sound Music Label, Tiki ziki continues to develop new projects 
-               and collaborations aimed at reaching wider global audiences. His music strategy 
-                includes digital distribution, online promotion, and performance opportunities
-                designed to strengthen his presence within the evolving Afrobeats scene.
+                Working with Top Sound Music Label, Tiki Ziki continues to develop new projects and
+                collaborations aimed at reaching wider global audiences through digital distribution,
+                online promotion, and live performances.
               </p>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-12 border-t border-border">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12 pt-10 border-t border-border">
               {highlights.map((item) => (
-                <div key={item.label}>
-                  <p className="text-3xl md:text-4xl font-bold text-primary">{item.stat}</p>
-                  <p className="text-sm text-muted-foreground mt-1">{item.label}</p>
+                <div key={item.label} className="group">
+                  <p className="text-3xl md:text-4xl font-black text-primary group-hover:scale-110 transition-transform duration-200 inline-block">
+                    {item.stat}
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-1 tracking-wide uppercase">{item.label}</p>
                 </div>
               ))}
             </div>
           </div>
+
         </div>
       </div>
     </section>
