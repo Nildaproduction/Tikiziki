@@ -17,9 +17,30 @@ const navLinks = [
 export function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [showNavbar, setShowNavbar] = useState(true)
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40)
+    const handleScroll = () => {
+      const scrollY = window.scrollY
+
+      setScrolled(scrollY > 40)
+
+      // Detect music section
+      const musicSection = document.getElementById("music")
+
+      if (musicSection) {
+        const musicTop = musicSection.offsetTop
+        const musicBottom = musicTop + musicSection.offsetHeight
+
+        // Hide navbar before music section
+        // Show navbar after passing music section
+        if (scrollY > musicTop && scrollY < musicBottom) {
+          setShowNavbar(false)
+        } else {
+          setShowNavbar(true)
+        }
+      }
+    }
 
     window.addEventListener("scroll", handleScroll)
 
@@ -36,7 +57,13 @@ export function Navigation() {
         z-50
 
         transition-all
-        duration-500
+        duration-700
+
+        ${
+          showNavbar
+            ? "translate-y-0 opacity-100"
+            : "-translate-y-32 opacity-0"
+        }
 
         ${
           scrolled
@@ -173,7 +200,6 @@ export function Navigation() {
                 "
               >
 
-                {/* Hover glass background */}
                 <span
                   className="
                     absolute
@@ -197,7 +223,6 @@ export function Navigation() {
                   {link.label}
                 </span>
 
-                {/* Animated underline */}
                 <span
                   className="
                     absolute
@@ -305,7 +330,6 @@ export function Navigation() {
             "
           >
 
-            {/* Glass shine */}
             <div className="absolute inset-0 pointer-events-none">
 
               <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
