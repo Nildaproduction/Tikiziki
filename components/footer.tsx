@@ -1,7 +1,6 @@
 import Link from "next/link"
 
 const navLinks = [
-  { href: "#home", label: "Home" },
   { href: "#music", label: "Music" },
   { href: "#videos", label: "Videos" },
   { href: "#press-kit", label: "Press Kit" },
@@ -41,36 +40,139 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-card border-t border-border">
-      {/* Top accent */}
-      <div className="h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+    <footer className="relative overflow-hidden border-t border-white/10 bg-black">
 
-      <div className="container mx-auto px-6 py-12">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+      {/* Background Glow */}
+      <div className="absolute inset-0 pointer-events-none">
+
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-primary/10 blur-[140px]" />
+
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:120px_100%] opacity-10" />
+
+      </div>
+
+      {/* Accent Line */}
+      <div className="relative z-10 h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
+
+      <div className="relative z-10 container mx-auto px-6 py-16">
+
+        {/* Main Footer */}
+        <div className="flex flex-col items-center text-center">
 
           {/* Logo */}
-          <Link href="#home" className="group flex items-center shrink-0">
-            <span className="text-xl font-black tracking-tighter group-hover:text-primary transition-colors">
+          <Link
+            href="#home"
+            className="
+              group
+              inline-flex
+              items-center
+              mb-6
+            "
+          >
+            <span
+              className="
+                text-3xl
+                md:text-4xl
+
+                font-black
+                tracking-[-0.08em]
+
+                text-white
+
+                transition-colors
+                duration-300
+
+                group-hover:text-primary
+              "
+            >
               TIKI ZIKI
             </span>
-            <span className="text-primary text-2xl leading-none">.</span>
+
+            <span
+              className="
+                text-primary
+                text-4xl
+
+                group-hover:scale-125
+
+                transition-transform
+                duration-300
+              "
+            >
+              .
+            </span>
           </Link>
 
-          {/* Nav links */}
-          <nav className="flex flex-wrap justify-center gap-x-6 gap-y-2">
+          {/* Small Tagline */}
+          <p
+            className="
+              max-w-md
+              mb-10
+
+              text-sm
+              leading-relaxed
+
+              text-white/45
+            "
+          >
+            Afrobeat, coastal rhythm and cinematic African sound.
+          </p>
+
+          {/* Navigation */}
+          <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mb-10">
+
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-xs tracking-[0.15em] uppercase text-muted-foreground hover:text-foreground transition-colors"
+                className="
+                  relative
+
+                  text-[11px]
+                  uppercase
+                  tracking-[0.25em]
+                  font-semibold
+
+                  text-white/45
+
+                  hover:text-white
+
+                  transition-colors
+                  duration-300
+
+                  group
+                "
               >
                 {link.label}
+
+                <span
+                  className="
+                    absolute
+                    left-0
+                    -bottom-1
+
+                    h-px
+                    w-full
+
+                    bg-primary
+
+                    scale-x-0
+                    group-hover:scale-x-100
+
+                    origin-left
+
+                    transition-transform
+                    duration-300
+                  "
+                />
               </Link>
             ))}
+
           </nav>
 
-          {/* Social icons */}
-          <div className="flex gap-3 shrink-0">
+          {/* Socials */}
+          <div className="flex items-center gap-4 mb-12">
+
             {socialLinks.map((social) => (
               <Link
                 key={social.label}
@@ -78,18 +180,82 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="flex items-center justify-center w-9 h-9 border border-border text-muted-foreground hover:text-primary hover:border-primary/50 transition-all duration-200"
+                className="
+                  group
+
+                  relative
+
+                  flex
+                  items-center
+                  justify-center
+
+                  w-11
+                  h-11
+
+                  rounded-2xl
+
+                  border border-white/10
+                  bg-white/[0.04]
+
+                  backdrop-blur-xl
+
+                  text-white/50
+
+                  hover:text-primary
+                  hover:border-primary/30
+                  hover:bg-white/[0.06]
+                  hover:scale-110
+
+                  transition-all
+                  duration-300
+                "
               >
-                {social.icon}
+
+                <span
+                  className="
+                    absolute
+                    inset-0
+
+                    rounded-2xl
+
+                    bg-gradient-to-br
+                    from-white/10
+                    to-transparent
+
+                    opacity-0
+                    group-hover:opacity-100
+
+                    transition-opacity
+                    duration-300
+                  "
+                />
+
+                <span className="relative z-10">
+                  {social.icon}
+                </span>
+
               </Link>
             ))}
-          </div>
-        </div>
 
-        <div className="mt-10 pt-8 border-t border-border/60 text-center">
-          <p className="text-xs text-muted-foreground tracking-wide">
-            © {new Date().getFullYear()} Tiki Ziki. All rights reserved. · Sound of the Coast.
-          </p>
+          </div>
+
+          {/* Bottom */}
+          <div className="w-full pt-8 border-t border-white/10">
+
+            <p
+              className="
+                text-[11px]
+                tracking-[0.18em]
+                uppercase
+
+                text-white/30
+              "
+            >
+              © {new Date().getFullYear()} Tiki Ziki — Sound of the Coast
+            </p>
+
+          </div>
+
         </div>
       </div>
     </footer>
