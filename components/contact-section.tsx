@@ -81,7 +81,7 @@ export function ContactSection() {
               </Link>
             </div>
           </div>
-           <h3 className="font-bold text-sm tracking-wide uppercase">Merchandise</h3>
+           <h4 className="font-bold text-sm tracking-wide uppercase">Merchandise</h3>
               </div>
               <Link
                 href="mailto:merch@tikiziki.com"
