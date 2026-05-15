@@ -1,49 +1,52 @@
 import { NextResponse } from "next/server"
+import { Resend } from "resend"
+
+const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function POST(req: Request) {
   try {
-    const body = await req.json()
+    const { email, country, postalCode } = await req.json()
 
-    const { email, country, postalCode } = body
-
-    const response = await fetch(
-      `https://${process.env.MAILCHIMP_SERVER}.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_AUDIENCE_ID}/members`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `apikey ${process.env.MAILCHIMP_API_KEY}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email_address: email,
-          status: "subscribed",
-          merge_fields: {
-            COUNTRY: country,
-            POSTAL: postalCode,
-          },
-        }),
-      }
-    )
-
-    const data = await response.json()
-
-    if (!response.ok) {
-      return NextResponse.json(data, { status: 400 })
+    if (!email) {
+      return NextResponse.json(
+        { error: "Email required" },
+        { status: 400 }
+      )
     }
+
+    // Store subscriber + send welcome email
+    const result = await resend.emails.send({
+      from: "Tiki Ziki <onboarding@resend.dev>",
+      to: email,
+      subject: "Welcome to Tiki Ziki Club 🔥",
+      html: `
+        <div style="font-family:Arial;padding:20px">
+          <h2>Welcome to Tiki Ziki Club</h2>
+          <p>You’re now subscribed for exclusive drops, music, and updates.</p>
+
+          <hr/>
+
+          <p><b>Your details:</b></p>
+          <p>Email: ${email}</p>
+          <p>Country: ${country || "N/A"}</p>
+          <p>Postal Code: ${postalCode || "N/A"}</p>
+
+          <br/>
+          <p>Follow Tiki Ziki for updates 🔥</p>
+        </div>
+      `,
+    })
 
     return NextResponse.json({
       success: true,
+      id: result.data?.id,
     })
   } catch (error) {
     console.error(error)
 
     return NextResponse.json(
-      {
-        error: "Something went wrong",
-      },
-      {
-        status: 500,
-      }
+      { error: "Failed to send email" },
+      { status: 500 }
     )
   }
 }
