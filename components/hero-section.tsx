@@ -20,7 +20,7 @@ export function HeroSection() {
       "
     >
 
-      {/* Background Image */}
+      {/* Background */}
       <div className="absolute inset-0 z-0">
 
         <Image
@@ -31,7 +31,6 @@ export function HeroSection() {
           className="
             object-cover
             object-center
-
             scale-[1.04]
 
             brightness-[0.65]
@@ -40,19 +39,19 @@ export function HeroSection() {
           "
         />
 
-        {/* Artistic overlays */}
+        {/* Overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black" />
 
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.08),transparent_45%)]" />
 
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:120px_100%] opacity-20" />
 
-        {/* Gold blur */}
+        {/* Glow */}
         <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-primary/10 blur-[180px] rounded-full" />
 
       </div>
 
-      {/* Floating Gradient Lines */}
+      {/* Floating Accent Lines */}
       <div className="absolute inset-0 pointer-events-none z-[1]">
 
         <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-primary/70 to-transparent" />
@@ -63,13 +62,13 @@ export function HeroSection() {
 
       </div>
 
-      {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-6">
+      {/* Content */}
+      <div className="relative z-10 container mx-auto px-6 pt-32 md:pt-36">
 
         <div className="max-w-6xl mx-auto text-center">
 
-          {/* Genre Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-3 mb-10">
+          {/* Genres */}
+          <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
 
             {genres.map((genre) => (
               <span
@@ -102,18 +101,18 @@ export function HeroSection() {
 
           </div>
 
-          {/* Artistic Heading */}
-          <div className="relative inline-block mb-10">
+          {/* Title */}
+          <div className="relative inline-block mb-8">
 
-            {/* Massive glow text */}
+            {/* Glow Text */}
             <span
               className="
                 absolute
                 inset-0
 
-                text-[5rem]
-                md:text-[10rem]
-                lg:text-[13rem]
+                text-[3.8rem]
+                md:text-[7rem]
+                lg:text-[9rem]
 
                 font-black
                 tracking-[-0.08em]
@@ -130,20 +129,19 @@ export function HeroSection() {
               TIKI ZIKI
             </span>
 
-            {/* Main text */}
+            {/* Main Text */}
             <h1
               className="
                 relative
 
-                text-[4.5rem]
-                md:text-[9rem]
-                lg:text-[12rem]
+                text-[3.8rem]
+                md:text-[7rem]
+                lg:text-[9rem]
 
-                leading-[0.82]
+                leading-[0.86]
                 tracking-[-0.08em]
 
                 font-black
-
                 uppercase
               "
             >
@@ -151,7 +149,6 @@ export function HeroSection() {
               <span
                 className="
                   block
-
                   text-white
 
                   drop-shadow-[0_0_40px_rgba(0,0,0,0.8)]
@@ -163,7 +160,6 @@ export function HeroSection() {
               <span
                 className="
                   block
-
                   text-primary
 
                   drop-shadow-[0_0_40px_oklch(0.78_0.12_65/0.45)]
@@ -177,7 +173,7 @@ export function HeroSection() {
           </div>
 
           {/* Tagline */}
-          <div className="flex items-center justify-center gap-5 mb-14">
+          <div className="flex items-center justify-center gap-5 mb-10">
 
             <div className="w-14 h-px bg-gradient-to-r from-transparent to-primary/60" />
 
@@ -207,7 +203,7 @@ export function HeroSection() {
             className="
               max-w-2xl
               mx-auto
-              mb-14
+              mb-12
 
               text-white/55
               text-sm
@@ -220,7 +216,7 @@ export function HeroSection() {
             shaping a cinematic African sound through music, visuals and culture.
           </p>
 
-          {/* CTA Buttons */}
+          {/* Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-5">
 
             {/* Primary */}
@@ -315,7 +311,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll */}
       <div
         className="
           absolute
