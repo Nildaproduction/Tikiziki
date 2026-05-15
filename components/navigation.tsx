@@ -20,29 +20,41 @@ export function Navigation() {
   const [showNavbar, setShowNavbar] = useState(true)
 
   useEffect(() => {
+    let lastScrollY = window.scrollY
+
     const handleScroll = () => {
-      const scrollY = window.scrollY
+      const currentScrollY = window.scrollY
 
-      setScrolled(scrollY > 40)
+      // Navbar glass state
+      setScrolled(currentScrollY > 40)
 
-      // Detect music section
-      const musicSection = document.getElementById("music")
+      // Hero section detection
+      const heroSection = document.getElementById("home")
 
-      if (musicSection) {
-        const musicTop = musicSection.offsetTop
-        const musicBottom = musicTop + musicSection.offsetHeight
+      if (heroSection) {
+        const heroHeight = heroSection.offsetHeight
 
-        // Hide navbar before music section
-        // Show navbar after passing music section
-        if (scrollY > musicTop && scrollY < musicBottom) {
-          setShowNavbar(false)
-        } else {
+        // Always show navbar inside hero section
+        if (currentScrollY < heroHeight - 120) {
           setShowNavbar(true)
+        } else {
+          // Hide on scroll down
+          if (currentScrollY > lastScrollY) {
+            setShowNavbar(false)
+            setIsOpen(false)
+          }
+
+          // Show on scroll up
+          else {
+            setShowNavbar(true)
+          }
         }
       }
+
+      lastScrollY = currentScrollY
     }
 
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", handleScroll, { passive: true })
 
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
@@ -57,12 +69,12 @@ export function Navigation() {
         z-50
 
         transition-all
-        duration-700
+        duration-500
 
         ${
           showNavbar
             ? "translate-y-0 opacity-100"
-            : "-translate-y-32 opacity-0"
+            : "-translate-y-[140%] opacity-0"
         }
 
         ${
@@ -73,7 +85,7 @@ export function Navigation() {
       `}
     >
 
-      {/* Floating glass navbar */}
+      {/* Floating Glass Navbar */}
       <div className="container mx-auto px-4 md:px-6">
 
         <div
@@ -109,7 +121,7 @@ export function Navigation() {
           `}
         >
 
-          {/* Glow effects */}
+          {/* Glow Effects */}
           <div className="absolute inset-0 pointer-events-none">
 
             <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
@@ -165,7 +177,7 @@ export function Navigation() {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
+          {/* Desktop Nav */}
           <div className="hidden md:flex items-center gap-2 relative z-10">
 
             {navLinks.map((link) => (
@@ -244,12 +256,11 @@ export function Navigation() {
                     duration-300
                   "
                 />
-
               </Link>
             ))}
           </div>
 
-          {/* Mobile Button */}
+          {/* Mobile Toggle */}
           <button
             className="
               md:hidden
@@ -344,7 +355,9 @@ export function Navigation() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  onClick={() => setIsOpen(false)}
+                  onClick={() => {
+                    setIsOpen(false)
+                  }}
                   className="
                     group
 
