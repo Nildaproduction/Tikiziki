@@ -59,10 +59,10 @@ export function ContactSection() {
                 <h3 className="font-bold text-sm tracking-wide uppercase">Booking & Management</h3>
               </div>
               <Link
-                href="mailto:tikimzikikenya@gmail.com"
+                href="mailto:booking@tikiziki.com"
                 className="text-muted-foreground hover:text-primary transition-colors text-sm break-all"
               >
-                tikimzikikenya@gmail.com
+               booking@tikiziki.com
               </Link>
             </div>
 
@@ -74,14 +74,23 @@ export function ContactSection() {
                 <h3 className="font-bold text-sm tracking-wide uppercase">Press & Media</h3>
               </div>
               <Link
-                href="mailto:livingstonmwaki12@gmail.com"
+                href="mailto:managemet@tikiziki.com"
                 className="text-muted-foreground hover:text-primary transition-colors text-sm break-all"
               >
-                livingstonmwaki12@gmail.com
+               managemet@tikiziki.com
               </Link>
             </div>
           </div>
-
+           <h3 className="font-bold text-sm tracking-wide uppercase">Merchandise</h3>
+              </div>
+              <Link
+                href="mailto:merch@tikiziki.com"
+                className="text-muted-foreground hover:text-primary transition-colors text-sm break-all"
+              >
+               merch@tikiziki.com
+              </Link>
+            </div>
+          </div>
           {/* Social links — proper icon buttons */}
           <div>
             <p className="text-xs text-muted-foreground mb-5 tracking-[0.2em] uppercase">Connect</p>
