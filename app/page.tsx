@@ -8,6 +8,7 @@ import { AboutSection } from "@/components/about-section"
 import { TourSection } from "@/components/tour-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
+import { TikiZikiClub } from "@/components/tiki-ziki-club"
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <HeroSection />
       <MusicSection />
       <VideosSection />
+      <TikiZikiClub />
       < StorePreview />
       <PressKitSection />
       <AboutSection />
