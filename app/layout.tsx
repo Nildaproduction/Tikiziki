@@ -13,25 +13,7 @@ export const metadata: Metadata = {
   title: 'Tiki ziki | Official website',
   description:
     'Official website of Tiki ziki - Afropop and Afrobeat artist blending traditional African rhythms with contemporary sounds.',
-  generator: 'v0.app',
   keywords: ['Afropop', 'Afrobeat', 'Music', 'Artist', 'African Music', 'Tiki ziki'],
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
-  },
 }
 
 export const viewport: Viewport = {
@@ -48,7 +30,7 @@ export default function RootLayout({
       <body className={`${merriweather.variable} font-serif antialiased`}>
         {children}
 
-        {/* Mailchimp Popup Script */}
+        {/* Mailchimp backup script (optional, NOT popup UI) */}
         <Script
           id="mcjs"
           strategy="afterInteractive"
@@ -60,7 +42,7 @@ export default function RootLayout({
                 m.async=1,
                 m.src=i,
                 p.parentNode.insertBefore(m,p)
-              }(document,"script","https://chimpstatic.com/mcjs-connected/js/users/b489bf014d7697b5376d14cf5/75c4b5fdc758d918fe34bfdc5.js");
+              }(document,"script","https://chimpstatic.com/mcjs-connected/js/users/b489bf014d7697b5376d14cf5/29f249d8d22d42837ab22060b.js");
             `,
           }}
         />
