@@ -158,7 +158,7 @@ export function Navigation() {
                 group-hover:text-primary
               "
             >
-              <img src="/images/Tiki ziki Model.svg" alt="Tiki Ziki Logo" />
+             <img src="/images/Tiki ziki Model.png" alt="Tiki Ziki Logo" />
             </span>
 
             <span
