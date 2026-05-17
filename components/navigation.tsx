@@ -24,14 +24,11 @@ export function Navigation() {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY
-
       setScrolled(currentScrollY > 40)
 
       const heroSection = document.getElementById("home")
-
       if (heroSection) {
         const heroHeight = heroSection.offsetHeight
-
         if (currentScrollY < heroHeight - 120) {
           setShowNavbar(true)
         } else {
@@ -53,8 +50,8 @@ export function Navigation() {
 
   return (
     <>
-      {/* Keyframe styles injected globally */}
       <style>{`
+        /* ── Tiki logo animations ── */
         @keyframes tikispin {
           0%   { transform: perspective(600px) rotateY(0deg) scale(1); }
           25%  { transform: perspective(600px) rotateY(15deg) scale(1.05); }
@@ -75,6 +72,41 @@ export function Navigation() {
           100% { opacity: 0.4; transform: scale(0.8); }
         }
 
+        /* ── Mr Gold shimmer sweep ── */
+        @keyframes goldShimmer {
+          0%   { background-position: -200% center; }
+          100% { background-position: 200% center; }
+        }
+
+        @keyframes goldGlowPulse {
+          0%   { text-shadow:
+            0 0 8px  rgba(255, 215, 0, 0.7),
+            0 0 20px rgba(255, 180, 0, 0.5),
+            0 0 40px rgba(255, 140, 0, 0.3),
+            0 2px 4px rgba(0,0,0,0.8);
+          }
+          50%  { text-shadow:
+            0 0 12px rgba(255, 235, 80, 0.95),
+            0 0 28px rgba(255, 200, 20, 0.75),
+            0 0 55px rgba(255, 160, 0, 0.5),
+            0 0 80px rgba(255, 120, 0, 0.25),
+            0 2px 4px rgba(0,0,0,0.8);
+          }
+          100% { text-shadow:
+            0 0 8px  rgba(255, 215, 0, 0.7),
+            0 0 20px rgba(255, 180, 0, 0.5),
+            0 0 40px rgba(255, 140, 0, 0.3),
+            0 2px 4px rgba(0,0,0,0.8);
+          }
+        }
+
+        @keyframes goldFloat {
+          0%   { transform: translateY(0px) skewX(-1deg); }
+          50%  { transform: translateY(-3px) skewX(1deg); }
+          100% { transform: translateY(0px) skewX(-1deg); }
+        }
+
+        /* ── Logo classes ── */
         .tiki-logo {
           animation:
             tikispin 6s ease-in-out infinite,
@@ -83,6 +115,23 @@ export function Navigation() {
             drop-shadow(0 0 20px rgba(255, 110, 40, 0.55))
             drop-shadow(0 12px 40px rgba(255, 255, 255, 0.18));
           transition: filter 0.4s ease, transform 0.4s ease;
+
+          /* ── Responsive logo size ── */
+          height: clamp(72px, 12vw, 160px);   /* phone → tablet → desktop */
+          width: auto;
+          object-fit: contain;
+        }
+
+        @media (min-width: 768px) {
+          .tiki-logo {
+            height: clamp(110px, 13vw, 175px);
+          }
+        }
+
+        @media (min-width: 1280px) {
+          .tiki-logo {
+            height: clamp(140px, 14vw, 190px);
+          }
         }
 
         .tiki-logo:hover {
@@ -95,6 +144,92 @@ export function Navigation() {
 
         .tiki-glow-ring {
           animation: tikiglowpulse 3s ease-in-out infinite;
+        }
+
+        /* ── Mr Gold text – hyper-realistic metallic gold ── */
+        .mr-gold-text {
+          /* Metallic gradient: dark-gold → bright-highlight → mid-gold → shadow-gold → shine */
+          background: linear-gradient(
+            160deg,
+            #3d2600 0%,
+            #7a4f00 8%,
+            #c8880a 18%,
+            #f5c842 28%,
+            #ffe87a 36%,
+            #ffd700 44%,
+            #e6a800 52%,
+            #b87900 60%,
+            #ffe066 68%,
+            #ffd700 76%,
+            #c8880a 84%,
+            #7a4f00 92%,
+            #3d2600 100%
+          );
+          background-size: 300% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
+          color: transparent;
+
+          /* Shimmer sweep */
+          animation:
+            goldShimmer 4s linear infinite,
+            goldGlowPulse 3s ease-in-out infinite,
+            goldFloat 5s ease-in-out infinite;
+
+          font-family: 'Georgia', 'Times New Roman', serif;
+          font-weight: 900;
+          font-style: italic;
+          letter-spacing: 0.08em;
+
+          /* Responsive size */
+          font-size: clamp(11px, 2.2vw, 20px);
+
+          /* Emboss effect via filter */
+          filter:
+            drop-shadow(0 1px 0 rgba(255,255,255,0.5))
+            drop-shadow(0 -1px 0 rgba(0,0,0,0.9))
+            drop-shadow(0 0 6px rgba(255, 200, 0, 0.6));
+
+          /* Prevent text select weirdness */
+          user-select: none;
+          white-space: nowrap;
+          display: block;
+          text-align: center;
+          margin-top: 2px;
+          position: relative;
+          z-index: 30;
+        }
+
+        /* Subtle engraved underline */
+        .mr-gold-text::after {
+          content: '';
+          display: block;
+          height: 1px;
+          margin: 2px auto 0;
+          width: 80%;
+          background: linear-gradient(
+            90deg,
+            transparent,
+            rgba(255, 210, 0, 0.8) 30%,
+            rgba(255, 255, 150, 1) 50%,
+            rgba(255, 210, 0, 0.8) 70%,
+            transparent
+          );
+          border-radius: 1px;
+          filter: blur(0.4px);
+        }
+
+        /* Responsive adjustments for mobile */
+        @media (max-width: 767px) {
+          .mr-gold-text {
+            font-size: clamp(9px, 3vw, 13px);
+            letter-spacing: 0.06em;
+          }
+          .logo-wrapper {
+            margin-top: -10px !important;
+            margin-bottom: -10px !important;
+          }
         }
       `}</style>
 
@@ -126,13 +261,15 @@ export function Navigation() {
               <div className="absolute -bottom-20 -right-20 w-52 h-52 bg-white/10 blur-3xl rounded-full opacity-60" />
             </div>
 
-            {/* Logo */}
+            {/* Logo + Mr Gold label */}
             <Link
               href="#home"
-              className="relative z-10 flex items-center group absolute left-1/2 -translate-x-1/2 md:static md:left-auto md:translate-x-0"
+              className="relative z-10 flex flex-col items-center group absolute left-1/2 -translate-x-1/2 md:static md:left-auto md:translate-x-0"
             >
-              <div className="relative -my-16">
-
+              <div
+                className="logo-wrapper relative flex flex-col items-center"
+                style={{ marginTop: '-3.5rem', marginBottom: '-3.5rem' }}
+              >
                 {/* Outer glow ring */}
                 <div
                   className="tiki-glow-ring absolute inset-0 rounded-full pointer-events-none"
@@ -158,11 +295,11 @@ export function Navigation() {
                 <img
                   src="/images/Tiki ziki Model.png"
                   alt="Tiki Ziki Logo"
-                  className="tiki-logo relative z-20 w-auto object-contain"
-                  style={{
-                    height: 'clamp(120px, 15vw, 180px)',
-                  }}
+                  className="tiki-logo relative z-20"
                 />
+
+                {/* Mr Gold — hyper-realistic golden label */}
+                <span className="mr-gold-text">Mr Gold</span>
               </div>
             </Link>
 
