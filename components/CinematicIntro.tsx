@@ -75,7 +75,7 @@ export default function CinematicIntro({ onComplete }: { onComplete?: () => void
         pointerEvents:          'none',
       }} />
 
-      {/* Intro overlay — logo + bar */}
+      {/* Intro overlay — logo + bar — tap anywhere for sound */}
       <div
         onClick={handleTap}
         style={{
@@ -118,6 +118,28 @@ export default function CinematicIntro({ onComplete }: { onComplete?: () => void
           />
         </div>
 
+
+        {/* Tap anywhere prompt */}
+        <div style={{
+          position: 'absolute', bottom: '18%',
+          left: '50%', transform: 'translateX(-50%)',
+          opacity: tappedRef.current ? 0 : 1 - glassOpacity,
+          transition: 'opacity 0.4s',
+          animation: 'tzPulse 1.8s ease-in-out infinite',
+          pointerEvents: 'none',
+          whiteSpace: 'nowrap',
+        }}>
+          <style>{`@keyframes tzPulse{0%,100%{opacity:.25}50%{opacity:.8}}`}</style>
+          <span style={{
+            color: 'rgba(255,255,255,0.55)',
+            fontSize: 'clamp(0.55rem, 1.3vw, 0.75rem)',
+            letterSpacing: '0.45em',
+            textTransform: 'uppercase',
+            fontFamily: 'monospace',
+          }}>
+            Tap anywhere for sound
+          </span>
+        </div>
         {/* Apple loading bar */}
         <div style={{
           position: 'absolute', bottom: '10%',
@@ -146,6 +168,7 @@ export default function CinematicIntro({ onComplete }: { onComplete?: () => void
           background: 'radial-gradient(ellipse 80% 80% at 50% 50%, transparent 35%, rgba(0,0,0,0.6) 100%)',
           opacity: 1 - glassOpacity,
         }} />
+
       </div>
     </>
   )
