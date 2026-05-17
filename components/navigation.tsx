@@ -25,27 +25,20 @@ export function Navigation() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY
 
-      // Navbar glass state
       setScrolled(currentScrollY > 40)
 
-      // Hero section detection
       const heroSection = document.getElementById("home")
 
       if (heroSection) {
         const heroHeight = heroSection.offsetHeight
 
-        // Always show navbar inside hero section
         if (currentScrollY < heroHeight - 120) {
           setShowNavbar(true)
         } else {
-          // Hide on scroll down
           if (currentScrollY > lastScrollY) {
             setShowNavbar(false)
             setIsOpen(false)
-          }
-
-          // Show on scroll up
-          else {
+          } else {
             setShowNavbar(true)
           }
         }
@@ -54,9 +47,12 @@ export function Navigation() {
       lastScrollY = currentScrollY
     }
 
-    window.addEventListener("scroll", handleScroll, { passive: true })
+    window.addEventListener("scroll", handleScroll, {
+      passive: true,
+    })
 
-    return () => window.removeEventListener("scroll", handleScroll)
+    return () =>
+      window.removeEventListener("scroll", handleScroll)
   }, [])
 
   return (
@@ -84,7 +80,6 @@ export function Navigation() {
         }
       `}
     >
-
       {/* Floating Glass Navbar */}
       <div className="container mx-auto px-4 md:px-6">
 
@@ -108,7 +103,7 @@ export function Navigation() {
 
             shadow-[0_8px_40px_rgba(255,255,255,0.06),0_10px_40px_rgba(0,0,0,0.45)]
 
-            overflow-hidden
+            overflow-visible
 
             transition-all
             duration-500
@@ -139,42 +134,125 @@ export function Navigation() {
               z-10
               flex
               items-center
-              gap-1
+              gap-3
               group
             "
           >
-            <span
-              className="
-                text-xl
-                md:text-2xl
-                font-black
-                tracking-[-0.08em]
 
-                text-white
+            {/* Floating Glass Logo */}
+            <div
+              className="
+                relative
+
+                flex
+                items-center
+                justify-center
+
+                w-14
+                h-14
+
+                -mt-5
+
+                rounded-2xl
+
+                bg-white/[0.08]
+                backdrop-blur-3xl
+
+                border border-white/15
+
+                shadow-[0_8px_30px_rgba(0,0,0,0.35)]
+
+                overflow-hidden
 
                 transition-all
                 duration-300
 
-                group-hover:text-primary
+                group-hover:scale-105
+                group-hover:bg-white/[0.12]
               "
             >
-             <img src="/images/Tiki ziki Model.png" alt="Tiki Ziki Logo" />
-            </span>
 
-            <span
-              className="
-                text-primary
-                text-3xl
-                leading-none
+              {/* Glass Highlight */}
+              <div
+                className="
+                  absolute
+                  inset-0
 
-                group-hover:scale-125
+                  bg-gradient-to-br
+                  from-white/20
+                  via-transparent
+                  to-transparent
 
-                transition-transform
-                duration-300
-              "
-            >
-              .
-            </span>
+                  pointer-events-none
+                "
+              />
+
+              {/* Glow */}
+              <div
+                className="
+                  absolute
+                  -bottom-5
+                  left-1/2
+                  -translate-x-1/2
+
+                  w-10
+                  h-10
+
+                  bg-primary/20
+                  blur-2xl
+                  rounded-full
+                "
+              />
+
+              {/* Logo Image */}
+              <img
+                src="/images/Tiki ziki Model.png"
+                alt="Tiki Ziki Logo"
+                className="
+                  relative
+                  z-10
+
+                  w-9
+                  h-9
+
+                  object-contain
+                "
+              />
+            </div>
+
+            {/* Text */}
+            <div className="flex flex-col leading-none">
+
+              <span
+                className="
+                  text-lg
+                  md:text-xl
+                  font-black
+                  tracking-[-0.08em]
+
+                  text-white
+
+                  transition-all
+                  duration-300
+
+                  group-hover:text-primary
+                "
+              >
+                TIKIZIKI
+              </span>
+
+              <span
+                className="
+                  text-[10px]
+                  uppercase
+                  tracking-[0.35em]
+
+                  text-white/40
+                "
+              >
+                Official
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Nav */}
@@ -300,118 +378,6 @@ export function Navigation() {
               <Menu className="h-5 w-5" />
             )}
           </button>
-        </div>
-      </div>
-
-      {/* Mobile Menu */}
-      <div
-        className={`
-          md:hidden
-
-          transition-all
-          duration-500
-          overflow-hidden
-
-          ${
-            isOpen
-              ? "max-h-[500px] opacity-100 mt-4"
-              : "max-h-0 opacity-0"
-          }
-        `}
-      >
-
-        <div className="container mx-auto px-4">
-
-          <div
-            className="
-              relative
-
-              overflow-hidden
-
-              rounded-[30px]
-
-              border border-white/15
-              bg-white/[0.07]
-
-              backdrop-blur-3xl
-
-              shadow-[0_10px_50px_rgba(0,0,0,0.45)]
-
-              p-4
-            "
-          >
-
-            <div className="absolute inset-0 pointer-events-none">
-
-              <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/40 to-transparent" />
-
-              <div className="absolute -top-16 right-0 w-40 h-40 bg-primary/10 blur-3xl rounded-full" />
-
-            </div>
-
-            <div className="relative z-10 flex flex-col gap-2">
-
-              {navLinks.map((link, i) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => {
-                    setIsOpen(false)
-                  }}
-                  className="
-                    group
-
-                    relative
-
-                    flex
-                    items-center
-                    gap-4
-
-                    px-5
-                    py-4
-
-                    rounded-2xl
-
-                    border border-transparent
-
-                    text-sm
-                    tracking-[0.2em]
-                    uppercase
-                    font-semibold
-
-                    text-muted-foreground
-
-                    hover:text-white
-                    hover:bg-white/[0.06]
-                    hover:border-white/10
-
-                    transition-all
-                    duration-300
-                  "
-                >
-
-                  <span
-                    className="
-                      text-primary/50
-                      text-xs
-                      font-mono
-
-                      group-hover:text-primary
-                      transition-colors
-                    "
-                  >
-                    0{i + 1}
-                  </span>
-
-                  <span className="relative z-10">
-                    {link.label}
-                  </span>
-
-                </Link>
-              ))}
-
-            </div>
-          </div>
         </div>
       </div>
     </header>
