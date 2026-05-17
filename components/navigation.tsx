@@ -129,7 +129,7 @@ export function Navigation() {
             {/* Logo */}
             <Link
               href="#home"
-              className="relative z-10 flex items-center group"
+              className="relative z-10 flex items-center group absolute left-1/2 -translate-x-1/2 md:static md:left-auto md:translate-x-0"
             >
               <div className="relative -my-16">
 
