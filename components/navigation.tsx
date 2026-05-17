@@ -24,11 +24,14 @@ export function Navigation() {
 
     const handleScroll = () => {
       const currentScrollY = window.scrollY
+
       setScrolled(currentScrollY > 40)
 
       const heroSection = document.getElementById("home")
+
       if (heroSection) {
         const heroHeight = heroSection.offsetHeight
+
         if (currentScrollY < heroHeight - 120) {
           setShowNavbar(true)
         } else {
@@ -51,7 +54,6 @@ export function Navigation() {
   return (
     <>
       <style>{`
-        /* ── Tiki logo animations ── */
         @keyframes tikispin {
           0%   { transform: perspective(600px) rotateY(0deg) scale(1); }
           25%  { transform: perspective(600px) rotateY(15deg) scale(1.05); }
@@ -72,41 +74,24 @@ export function Navigation() {
           100% { opacity: 0.4; transform: scale(0.8); }
         }
 
-        /* ── Mr Gold shimmer sweep ── */
         @keyframes goldShimmer {
           0%   { background-position: -200% center; }
           100% { background-position: 200% center; }
         }
 
         @keyframes goldGlowPulse {
-          0%   { text-shadow:
-            0 0 8px  rgba(255, 215, 0, 0.7),
-            0 0 20px rgba(255, 180, 0, 0.5),
-            0 0 40px rgba(255, 140, 0, 0.3),
-            0 2px 4px rgba(0,0,0,0.8);
-          }
-          50%  { text-shadow:
-            0 0 12px rgba(255, 235, 80, 0.95),
-            0 0 28px rgba(255, 200, 20, 0.75),
-            0 0 55px rgba(255, 160, 0, 0.5),
-            0 0 80px rgba(255, 120, 0, 0.25),
-            0 2px 4px rgba(0,0,0,0.8);
-          }
-          100% { text-shadow:
-            0 0 8px  rgba(255, 215, 0, 0.7),
-            0 0 20px rgba(255, 180, 0, 0.5),
-            0 0 40px rgba(255, 140, 0, 0.3),
-            0 2px 4px rgba(0,0,0,0.8);
-          }
+          0%   { text-shadow: 0 0 8px rgba(255,215,0,0.7), 0 0 20px rgba(255,180,0,0.5), 0 0 40px rgba(255,140,0,0.3), 0 2px 4px rgba(0,0,0,0.8); }
+          50%  { text-shadow: 0 0 12px rgba(255,235,80,0.95), 0 0 28px rgba(255,200,20,0.75), 0 0 55px rgba(255,160,0,0.5), 0 0 80px rgba(255,120,0,0.25), 0 2px 4px rgba(0,0,0,0.8); }
+          100% { text-shadow: 0 0 8px rgba(255,215,0,0.7), 0 0 20px rgba(255,180,0,0.5), 0 0 40px rgba(255,140,0,0.3), 0 2px 4px rgba(0,0,0,0.8); }
         }
 
         @keyframes goldFloat {
-          0%   { transform: translateY(0px) skewX(-1deg); }
-          50%  { transform: translateY(-3px) skewX(1deg); }
-          100% { transform: translateY(0px) skewX(-1deg); }
+          0%   { transform: rotate(180deg) translateX(0px); }
+          50%  { transform: rotate(180deg) translateX(-3px); }
+          100% { transform: rotate(180deg) translateX(0px); }
         }
 
-        /* ── Logo classes ── */
+        /* ── Logo: fixed 120px on phone, fluid on tablet/laptop ── */
         .tiki-logo {
           animation:
             tikispin 6s ease-in-out infinite,
@@ -115,23 +100,17 @@ export function Navigation() {
             drop-shadow(0 0 20px rgba(255, 110, 40, 0.55))
             drop-shadow(0 12px 40px rgba(255, 255, 255, 0.18));
           transition: filter 0.4s ease, transform 0.4s ease;
-
-          /* ── Bigger responsive logo size ── */
-          height: clamp(90px, 14vw, 200px);
+          height: 120px;
           width: auto;
           object-fit: contain;
         }
 
         @media (min-width: 768px) {
-          .tiki-logo {
-            height: clamp(130px, 15vw, 210px);
-          }
+          .tiki-logo { height: clamp(140px, 14vw, 200px); }
         }
 
         @media (min-width: 1280px) {
-          .tiki-logo {
-            height: clamp(160px, 16vw, 230px);
-          }
+          .tiki-logo { height: clamp(170px, 15vw, 230px); }
         }
 
         .tiki-logo:hover {
@@ -146,89 +125,48 @@ export function Navigation() {
           animation: tikiglowpulse 3s ease-in-out infinite;
         }
 
-        /* ── Mr Gold text – hyper-realistic metallic gold ── */
+        /* ── Mr Gold: vertical text, left of image ── */
         .mr-gold-text {
           background: linear-gradient(
             160deg,
-            #3d2600 0%,
-            #7a4f00 8%,
-            #c8880a 18%,
-            #f5c842 28%,
-            #ffe87a 36%,
-            #ffd700 44%,
-            #e6a800 52%,
-            #b87900 60%,
-            #ffe066 68%,
-            #ffd700 76%,
-            #c8880a 84%,
-            #7a4f00 92%,
-            #3d2600 100%
+            #3d2600 0%, #7a4f00 8%, #c8880a 18%, #f5c842 28%,
+            #ffe87a 36%, #ffd700 44%, #e6a800 52%, #b87900 60%,
+            #ffe066 68%, #ffd700 76%, #c8880a 84%, #7a4f00 92%, #3d2600 100%
           );
           background-size: 300% auto;
           -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;
           color: transparent;
-
           animation:
             goldShimmer 4s linear infinite,
             goldGlowPulse 3s ease-in-out infinite,
             goldFloat 5s ease-in-out infinite;
-
           font-family: 'Georgia', 'Times New Roman', serif;
           font-weight: 900;
           font-style: italic;
-          letter-spacing: 0.08em;
-
-          /* Vertical text flowing downward beside image */
+          letter-spacing: 0.1em;
           writing-mode: vertical-rl;
           text-orientation: mixed;
-          transform: rotate(180deg); /* read bottom-to-top = natural left-side label */
-
-          font-size: clamp(13px, 2vw, 22px);
-
+          transform: rotate(180deg);
+          font-size: 13px;
           filter:
             drop-shadow(0 1px 0 rgba(255,255,255,0.5))
             drop-shadow(0 -1px 0 rgba(0,0,0,0.9))
-            drop-shadow(0 0 8px rgba(255, 200, 0, 0.7));
-
+            drop-shadow(0 0 8px rgba(255,200,0,0.7));
           user-select: none;
           white-space: nowrap;
           position: relative;
           z-index: 30;
           line-height: 1;
-          margin-right: 6px; /* gap between text and image */
+          margin-right: 5px;
+          flex-shrink: 0;
         }
 
-        /* Subtle engraved side-line */
-        .mr-gold-text::after {
-          content: '';
-          display: block;
-          width: 1px;
-          margin: 0 auto;
-          height: 80%;
-          background: linear-gradient(
-            180deg,
-            transparent,
-            rgba(255, 210, 0, 0.8) 30%,
-            rgba(255, 255, 150, 1) 50%,
-            rgba(255, 210, 0, 0.8) 70%,
-            transparent
-          );
-          border-radius: 1px;
-          filter: blur(0.4px);
-        }
-
-        /* Responsive adjustments for mobile */
-        @media (max-width: 767px) {
+        @media (min-width: 768px) {
           .mr-gold-text {
-            font-size: clamp(10px, 3vw, 14px);
-            letter-spacing: 0.06em;
-            margin-right: 4px;
-          }
-          .logo-wrapper {
-            margin-top: -8px !important;
-            margin-bottom: -8px !important;
+            font-size: clamp(15px, 1.4vw, 20px);
+            margin-right: 8px;
           }
         }
       `}</style>
@@ -261,16 +199,14 @@ export function Navigation() {
               <div className="absolute -bottom-20 -right-20 w-52 h-52 bg-white/10 blur-3xl rounded-full opacity-60" />
             </div>
 
-            {/* Logo + Mr Gold label */}
+            {/* Logo */}
             <Link
               href="#home"
               className="relative z-10 flex items-center group absolute left-1/2 -translate-x-1/2 md:static md:left-auto md:translate-x-0"
             >
-              <div
-                className="logo-wrapper relative flex flex-row items-center"
-                style={{ marginTop: '-3.5rem', marginBottom: '-3.5rem' }}
-              >
-                {/* Mr Gold — hyper-realistic golden label, left side */}
+              <div className="relative -my-16 flex flex-row items-center">
+
+                {/* Mr Gold — vertical, left of the image */}
                 <span className="mr-gold-text">Mr Gold</span>
 
                 {/* Outer glow ring */}
@@ -298,7 +234,7 @@ export function Navigation() {
                 <img
                   src="/images/Tiki ziki Model.png"
                   alt="Tiki Ziki Logo"
-                  className="tiki-logo relative z-20"
+                  className="tiki-logo relative z-20 w-auto object-contain"
                 />
               </div>
             </Link>
