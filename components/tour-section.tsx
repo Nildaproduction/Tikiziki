@@ -133,7 +133,7 @@ export function TourSection() {
                   </p>
 
                   <p className="text-xs text-primary/60 tracking-[0.2em] mt-2 uppercase">
-                    New tour dates coming soon
+                    No Tours Yet
                   </p>
                 </div>
               )}
