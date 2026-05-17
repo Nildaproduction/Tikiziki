@@ -5,13 +5,13 @@ import Link from "next/link"
 import { Menu, X } from "lucide-react"
 
 const navLinks = [
-  { href: "home", label: "Home" },
-  { href: "music", label: "Music" },
-  { href: "videos", label: "Videos" },
+  { href: "#home", label: "Home" },
+  { href: "#music", label: "Music" },
+  { href: "#videos", label: "Videos" },
   { href: "/store", label: "Store" },
-  { href: "press-kit", label: "Press Kit" },
-  { href: "about", label: "About" },
-  { href: "contact", label: "Contact" },
+  { href: "#press-kit", label: "Press Kit" },
+  { href: "#about", label: "About" },
+  { href: "#contact", label: "Contact" },
 ]
 
 export function Navigation() {
@@ -47,9 +47,7 @@ export function Navigation() {
       lastScrollY = currentScrollY
     }
 
-    window.addEventListener("scroll", handleScroll, {
-      passive: true,
-    })
+    window.addEventListener("scroll", handleScroll, { passive: true })
 
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
@@ -69,7 +67,6 @@ export function Navigation() {
         ${scrolled ? "py-3" : "py-5"}
       `}
     >
-      {/* Glass Navbar */}
       <div className="container mx-auto px-4 md:px-6">
         <div
           className={`
@@ -106,13 +103,13 @@ export function Navigation() {
               className="
                 relative z-20
 
-                h-36 md:h-44
+                h-40 md:h-48
                 w-auto
                 object-contain
 
-                -my-16
+                -my-20
 
-                drop-shadow-[0_15px_45px_rgba(255,255,255,0.18)]
+                drop-shadow-[0_15px_50px_rgba(255,255,255,0.18)]
 
                 transition-all duration-700
 
@@ -132,20 +129,11 @@ export function Navigation() {
                 href={link.href}
                 className="
                   relative px-5 py-3 rounded-2xl
-
                   text-[11px] tracking-[0.22em] uppercase font-semibold
-
                   text-muted-foreground
-
                   border border-transparent
-
-                  hover:text-white
-                  hover:bg-white/[0.06]
-                  hover:border-white/10
-
-                  transition-all duration-300
-
-                  group
+                  hover:text-white hover:bg-white/[0.06] hover:border-white/10
+                  transition-all duration-300 group
                 "
               >
                 <span className="relative z-10">{link.label}</span>
@@ -162,7 +150,7 @@ export function Navigation() {
             ))}
           </div>
 
-          {/* Mobile Toggle */}
+          {/* Mobile */}
           <button
             className="
               md:hidden relative z-10 flex items-center justify-center
@@ -170,7 +158,6 @@ export function Navigation() {
               border border-white/10
               bg-white/[0.05]
               backdrop-blur-xl
-              hover:bg-white/[0.08]
               transition-all duration-300
             "
             onClick={() => setIsOpen(!isOpen)}
@@ -180,7 +167,7 @@ export function Navigation() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile menu */}
       <div
         className={`
           md:hidden transition-all duration-500 overflow-hidden
@@ -214,7 +201,7 @@ export function Navigation() {
         </div>
       </div>
 
-      {/* Animation */}
+      {/* Tilt animation */}
       <style jsx global>{`
         @keyframes tilt {
           0% { transform: rotate(-2deg); }
