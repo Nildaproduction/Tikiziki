@@ -116,21 +116,21 @@ export function Navigation() {
             drop-shadow(0 12px 40px rgba(255, 255, 255, 0.18));
           transition: filter 0.4s ease, transform 0.4s ease;
 
-          /* ── Responsive logo size ── */
-          height: clamp(72px, 12vw, 160px);   /* phone → tablet → desktop */
+          /* ── Bigger responsive logo size ── */
+          height: clamp(90px, 14vw, 200px);
           width: auto;
           object-fit: contain;
         }
 
         @media (min-width: 768px) {
           .tiki-logo {
-            height: clamp(110px, 13vw, 175px);
+            height: clamp(130px, 15vw, 210px);
           }
         }
 
         @media (min-width: 1280px) {
           .tiki-logo {
-            height: clamp(140px, 14vw, 190px);
+            height: clamp(160px, 16vw, 230px);
           }
         }
 
@@ -148,7 +148,6 @@ export function Navigation() {
 
         /* ── Mr Gold text – hyper-realistic metallic gold ── */
         .mr-gold-text {
-          /* Metallic gradient: dark-gold → bright-highlight → mid-gold → shadow-gold → shine */
           background: linear-gradient(
             160deg,
             #3d2600 0%,
@@ -171,7 +170,6 @@ export function Navigation() {
           -webkit-text-fill-color: transparent;
           color: transparent;
 
-          /* Shimmer sweep */
           animation:
             goldShimmer 4s linear infinite,
             goldGlowPulse 3s ease-in-out infinite,
@@ -182,34 +180,35 @@ export function Navigation() {
           font-style: italic;
           letter-spacing: 0.08em;
 
-          /* Responsive size */
-          font-size: clamp(11px, 2.2vw, 20px);
+          /* Vertical text flowing downward beside image */
+          writing-mode: vertical-rl;
+          text-orientation: mixed;
+          transform: rotate(180deg); /* read bottom-to-top = natural left-side label */
 
-          /* Emboss effect via filter */
+          font-size: clamp(13px, 2vw, 22px);
+
           filter:
             drop-shadow(0 1px 0 rgba(255,255,255,0.5))
             drop-shadow(0 -1px 0 rgba(0,0,0,0.9))
-            drop-shadow(0 0 6px rgba(255, 200, 0, 0.6));
+            drop-shadow(0 0 8px rgba(255, 200, 0, 0.7));
 
-          /* Prevent text select weirdness */
           user-select: none;
           white-space: nowrap;
-          display: block;
-          text-align: center;
-          margin-top: 2px;
           position: relative;
           z-index: 30;
+          line-height: 1;
+          margin-right: 6px; /* gap between text and image */
         }
 
-        /* Subtle engraved underline */
+        /* Subtle engraved side-line */
         .mr-gold-text::after {
           content: '';
           display: block;
-          height: 1px;
-          margin: 2px auto 0;
-          width: 80%;
+          width: 1px;
+          margin: 0 auto;
+          height: 80%;
           background: linear-gradient(
-            90deg,
+            180deg,
             transparent,
             rgba(255, 210, 0, 0.8) 30%,
             rgba(255, 255, 150, 1) 50%,
@@ -223,12 +222,13 @@ export function Navigation() {
         /* Responsive adjustments for mobile */
         @media (max-width: 767px) {
           .mr-gold-text {
-            font-size: clamp(9px, 3vw, 13px);
+            font-size: clamp(10px, 3vw, 14px);
             letter-spacing: 0.06em;
+            margin-right: 4px;
           }
           .logo-wrapper {
-            margin-top: -10px !important;
-            margin-bottom: -10px !important;
+            margin-top: -8px !important;
+            margin-bottom: -8px !important;
           }
         }
       `}</style>
@@ -264,12 +264,15 @@ export function Navigation() {
             {/* Logo + Mr Gold label */}
             <Link
               href="#home"
-              className="relative z-10 flex flex-col items-center group absolute left-1/2 -translate-x-1/2 md:static md:left-auto md:translate-x-0"
+              className="relative z-10 flex items-center group absolute left-1/2 -translate-x-1/2 md:static md:left-auto md:translate-x-0"
             >
               <div
-                className="logo-wrapper relative flex flex-col items-center"
+                className="logo-wrapper relative flex flex-row items-center"
                 style={{ marginTop: '-3.5rem', marginBottom: '-3.5rem' }}
               >
+                {/* Mr Gold — hyper-realistic golden label, left side */}
+                <span className="mr-gold-text">Mr Gold</span>
+
                 {/* Outer glow ring */}
                 <div
                   className="tiki-glow-ring absolute inset-0 rounded-full pointer-events-none"
@@ -297,9 +300,6 @@ export function Navigation() {
                   alt="Tiki Ziki Logo"
                   className="tiki-logo relative z-20"
                 />
-
-                {/* Mr Gold — hyper-realistic golden label */}
-                <span className="mr-gold-text">Mr Gold</span>
               </div>
             </Link>
 
