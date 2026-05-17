@@ -42,137 +42,127 @@ export function Footer() {
   return (
     <footer className="relative overflow-hidden border-t border-white/10 bg-black">
 
+      <style>{`
+        @keyframes footerFloat {
+          0%   { transform: translateY(0px) rotate(-2deg); }
+          50%  { transform: translateY(-10px) rotate(2deg); }
+          100% { transform: translateY(0px) rotate(-2deg); }
+        }
+
+        @keyframes footerGlowPulse {
+          0%   { opacity: 0.35; transform: scale(0.95); }
+          50%  { opacity: 0.65; transform: scale(1.05); }
+          100% { opacity: 0.35; transform: scale(0.95); }
+        }
+
+        @keyframes waveScroll {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
+        .footer-logo-img {
+          animation: footerFloat 5s ease-in-out infinite;
+          filter:
+            drop-shadow(0 0 18px rgba(255, 110, 40, 0.5))
+            drop-shadow(0 8px 30px rgba(0, 0, 0, 0.6));
+          height: clamp(110px, 14vw, 180px);
+          width: auto;
+          object-fit: contain;
+        }
+
+        .footer-logo-img:hover {
+          animation-play-state: paused;
+          filter:
+            drop-shadow(0 0 28px rgba(255, 110, 40, 0.8))
+            drop-shadow(0 12px 50px rgba(0, 0, 0, 0.7));
+        }
+
+        .footer-logo-glow {
+          animation: footerGlowPulse 3.5s ease-in-out infinite;
+        }
+
+        .footer-wave-track {
+          display: flex;
+          width: max-content;
+          animation: waveScroll 18s linear infinite;
+        }
+      `}</style>
+
       {/* Background Glow */}
       <div className="absolute inset-0 pointer-events-none">
-
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] bg-primary/10 blur-[140px]" />
-
+        <div className="absolute bottom-0 left-1/4 w-[400px] h-[200px] bg-orange-500/5 blur-[100px]" />
         <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(255,255,255,0.03)_1px,transparent_1px)] bg-[size:120px_100%] opacity-10" />
-
       </div>
 
       {/* Accent Line */}
       <div className="relative z-10 h-[1px] bg-gradient-to-r from-transparent via-primary/40 to-transparent" />
 
-      <div className="relative z-10 container mx-auto px-6 py-16">
+      {/* Scrolling ticker */}
+      <div className="relative z-10 overflow-hidden py-3 border-b border-white/[0.06]">
+        <div className="footer-wave-track">
+          {[...Array(2)].map((_, i) => (
+            <span key={i} className="flex items-center gap-6 pr-6">
+              {["Afrobeat", "•", "Coastal Rhythm", "•", "Cinematic Sound", "•", "Sound of the Coast", "•", "Tiki Ziki", "•"].map((word, j) => (
+                <span
+                  key={j}
+                  className={
+                    word === "•"
+                      ? "text-primary/50 text-xs"
+                      : "text-[10px] tracking-[0.3em] uppercase font-semibold text-white/20"
+                  }
+                >
+                  {word}
+                </span>
+              ))}
+            </span>
+          ))}
+        </div>
+      </div>
 
-        {/* Main Footer */}
+      <div className="relative z-10 container mx-auto px-6 py-14">
         <div className="flex flex-col items-center text-center">
 
-          {/* Logo */}
-          <Link
-            href="#home"
-            className="
-              group
-              inline-flex
-              items-center
-              mb-6
-            "
-          >
-            <span
-              className="
-                text-3xl
-                md:text-4xl
-
-                font-black
-                tracking-[-0.08em]
-
-                text-white
-
-                transition-colors
-                duration-300
-
-                group-hover:text-primary
-              "
-            >
-              TIKI ZIKI
-            </span>
-
-            <span
-              className="
-                text-primary
-                text-4xl
-
-                group-hover:scale-125
-
-                transition-transform
-                duration-300
-              "
-            >
-              .
-            </span>
+          {/* Logo image only — no text label */}
+          <Link href="#home" className="group mb-8 flex flex-col items-center">
+            <div className="relative">
+              <div
+                className="footer-logo-glow absolute inset-0 rounded-full pointer-events-none"
+                style={{
+                  background: 'radial-gradient(ellipse at center, rgba(255,110,40,0.2) 0%, transparent 70%)',
+                  transform: 'scale(1.4)',
+                  filter: 'blur(16px)',
+                }}
+              />
+              <img
+                src="/images/Tiki ziki Model.png"
+                alt="Tiki Ziki"
+                className="footer-logo-img relative z-10"
+              />
+            </div>
           </Link>
 
-          {/* Small Tagline */}
-          <p
-            className="
-              max-w-md
-              mb-10
-
-              text-sm
-              leading-relaxed
-
-              text-white/45
-            "
-          >
+          {/* Tagline */}
+          <p className="max-w-sm mb-10 text-sm leading-relaxed text-white/35">
             Afrobeat, coastal rhythm and cinematic African sound.
           </p>
 
           {/* Navigation */}
           <nav className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 mb-10">
-
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="
-                  relative
-
-                  text-[11px]
-                  uppercase
-                  tracking-[0.25em]
-                  font-semibold
-
-                  text-white/45
-
-                  hover:text-white
-
-                  transition-colors
-                  duration-300
-
-                  group
-                "
+                className="relative text-[11px] uppercase tracking-[0.25em] font-semibold text-white/40 hover:text-white transition-colors duration-300 group"
               >
                 {link.label}
-
-                <span
-                  className="
-                    absolute
-                    left-0
-                    -bottom-1
-
-                    h-px
-                    w-full
-
-                    bg-primary
-
-                    scale-x-0
-                    group-hover:scale-x-100
-
-                    origin-left
-
-                    transition-transform
-                    duration-300
-                  "
-                />
+                <span className="absolute left-0 -bottom-1 h-px w-full bg-primary scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-300" />
               </Link>
             ))}
-
           </nav>
 
           {/* Socials */}
           <div className="flex items-center gap-4 mb-12">
-
             {socialLinks.map((social) => (
               <Link
                 key={social.label}
@@ -180,80 +170,19 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label={social.label}
-                className="
-                  group
-
-                  relative
-
-                  flex
-                  items-center
-                  justify-center
-
-                  w-11
-                  h-11
-
-                  rounded-2xl
-
-                  border border-white/10
-                  bg-white/[0.04]
-
-                  backdrop-blur-xl
-
-                  text-white/50
-
-                  hover:text-primary
-                  hover:border-primary/30
-                  hover:bg-white/[0.06]
-                  hover:scale-110
-
-                  transition-all
-                  duration-300
-                "
+                className="group relative flex items-center justify-center w-11 h-11 rounded-2xl border border-white/10 bg-white/[0.04] backdrop-blur-xl text-white/50 hover:text-primary hover:border-primary/30 hover:bg-white/[0.06] hover:scale-110 transition-all duration-300"
               >
-
-                <span
-                  className="
-                    absolute
-                    inset-0
-
-                    rounded-2xl
-
-                    bg-gradient-to-br
-                    from-white/10
-                    to-transparent
-
-                    opacity-0
-                    group-hover:opacity-100
-
-                    transition-opacity
-                    duration-300
-                  "
-                />
-
-                <span className="relative z-10">
-                  {social.icon}
-                </span>
-
+                <span className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <span className="relative z-10">{social.icon}</span>
               </Link>
             ))}
-
           </div>
 
           {/* Bottom */}
           <div className="w-full pt-8 border-t border-white/10">
-
-            <p
-              className="
-                text-[11px]
-                tracking-[0.18em]
-                uppercase
-
-                text-white/30
-              "
-            >
+            <p className="text-[11px] tracking-[0.18em] uppercase text-white/25">
               © {new Date().getFullYear()} Tiki Ziki — Sound of the Coast
             </p>
-
           </div>
 
         </div>
